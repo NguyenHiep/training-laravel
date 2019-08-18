@@ -6,5 +6,10 @@ return [
         3 => '3 điểm - Cũng tạm, để coi sao',
         4 => '4 điểm - Cũng ngon, nên làm lâu dài',
         5 => '5 điểm - Công ty tuyệt cmn vời, đuổi cũng méo đi'
+    ],
+    'reaction' => [
+        'LIKE' => '&#128077; Like',
+        'HATE' => '&#128078; Đếch lai',
+        'DELETE' => '&#10060; Xóa giùm',
     ]
 ];

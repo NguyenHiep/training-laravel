@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Comment;
+use App\Company;
 use App\Http\Controllers\Manage\BaseController as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,12 +21,14 @@ class CommentController extends BaseController
     protected function validator(array $data, int $id = null)
     {
         return Validator::make($data, [
-            'name'    => ['required', 'string', 'max:255', 'unique:companies,id,' . $id],
-            'type'    => ['required', 'string'],
-            'size'    => ['required', 'integer', 'min:0'],
-            'address' => ['required', 'string'],
-            'logo'    => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
-            'status'  => ['required', 'integer', 'min:0', 'max:1']
+            'company_id' => ['required', 'integer'],
+            'parent_id'  => ['nullable', 'integer', 'min:0'],
+            'reviewer'   => ['required', 'string'],
+            'position'   => ['required', 'string'],
+            'content'    => ['required', 'string'],
+            'reaction'   => ['nullable', 'string', 'in:LIKE,HATE,DELETE'],
+            'star'       => ['required', 'integer', 'min:1', 'max:5'],
+            'status'     => ['required', 'integer', 'min:0', 'max:1']
         ]);
     }
 
@@ -35,7 +39,13 @@ class CommentController extends BaseController
      */
     public function index()
     {
-        //
+        $companyId = request()->input('company_id', 0);
+        if (!empty($companyId)) {
+            $comments = Comment::with('company')->orderBy('id', 'DESC')->whereCompanyId($companyId)->paginate(self::LIMIT);
+        } else {
+            $comments = Comment::with('company')->orderBy('id', 'DESC')->paginate(self::LIMIT);
+        }
+        return view('manage.comments.list')->with(['comments' => $comments, 'companyId' => $companyId]);
     }
 
     /**
@@ -45,7 +55,9 @@ class CommentController extends BaseController
      */
     public function create()
     {
-        //
+        $companyId = request()->input('company_id', 0);
+        $company = Company::findOrFail($companyId);
+        return view('manage.comments.create')->with(['company' => $company]);
     }
 
     /**
@@ -56,7 +68,29 @@ class CommentController extends BaseController
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->input();
+        $inputs['status'] = $request->input('status', 0);
+        $validator = $this->validator($inputs);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $comment = Comment::create($inputs);
+        if (!empty($comment['id'])) {
+            if ($inputs['save'] === self::SAVE_CLOSE) {
+                return redirect()->route('manage.comments.index', ['company_id' => $comment['company_id']])->with([
+                    'message' => __('Successfully!'),
+                    'status'  => self::CTRL_MESSAGE_SUCCESS,
+                ]);
+            }
+            return redirect()->back()->with([
+                'message' => __('Successfully!'),
+                'status'  => self::CTRL_MESSAGE_SUCCESS,
+            ]);
+        }
+        return redirect()->back()->withInput($inputs)->with([
+            'message' => __('Wrong!'),
+            'status'  => self::CTRL_MESSAGE_ERROR
+        ]);
     }
 
     /**
@@ -78,7 +112,8 @@ class CommentController extends BaseController
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::with('company')->findOrFail($id);
+        return view('manage.comments.edit')->with(['comment' => $comment]);
     }
 
     /**
@@ -90,7 +125,30 @@ class CommentController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->input();
+        $inputs['status'] = $request->input('status', 0);
+        $validator = $this->validator($inputs, $id);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $comment = Comment::findOrFail($id);
+        $comment->update($inputs);
+        if (!empty($comment['id'])) {
+            if ($inputs['save'] === self::SAVE_CLOSE) {
+                return redirect()->route('manage.comments.index')->with([
+                    'message' => __('Successfully!'),
+                    'status'  => self::CTRL_MESSAGE_SUCCESS,
+                ]);
+            }
+            return redirect()->back()->with([
+                'message' => __('Successfully!'),
+                'status'  => self::CTRL_MESSAGE_SUCCESS,
+            ]);
+        }
+        return redirect()->back()->withInput($inputs)->with([
+            'message' => __('Wrong!'),
+            'status'  => self::CTRL_MESSAGE_ERROR
+        ]);
     }
 
     /**
@@ -101,6 +159,11 @@ class CommentController extends BaseController
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        return redirect()->back()->with([
+            'message' => __('Successfully!'),
+            'status'  => self::CTRL_MESSAGE_SUCCESS,
+        ]);
     }
 }

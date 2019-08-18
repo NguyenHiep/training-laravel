@@ -352,3 +352,75 @@ a:hover{
     left: 5px;
     top: -1px;
 }
+.loading {
+    opacity: 0.8;
+    pointer-events: none;
+    position: relative;
+    .loading-block {
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 50%;
+        margin-top: -50px;
+    }
+}
+/** Auto complete */
+.form-search {
+    position: relative;
+}
+
+.autocomplete-suggestions {
+    text-align: left;
+    cursor: default;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background: #fff;
+    box-shadow: -1px 1px 3px rgba(0, 0, 0, .1);
+    /* core styles should not be changed */
+    position: absolute;
+    //display: none;
+    z-index: 9999;
+    max-height: 254px;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+a.link-company-detail {
+   color: #4a4a4a;
+}
+.autocomplete-suggestion {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem;
+    position: relative;
+    line-height: 23px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.02em;
+    color: #333;
+    cursor: pointer;
+    &:hover{
+        background: #f0f0f0;
+    }
+    strong {
+        font-weight: 700;
+        color: #209cee;
+    }
+    .company-logo {
+        margin: 0 0.25rem 0 0;
+        display: flex;
+        align-items: center;
+        border: 1px solid #c2c2c2;
+    }
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.image.is-32x32 {
+    height: 32px;
+    width: 32px;
+}

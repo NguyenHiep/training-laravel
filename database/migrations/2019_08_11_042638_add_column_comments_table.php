@@ -14,7 +14,8 @@ class AddColumnCommentsTable extends Migration
     public function up()
     {
         Schema::table('comments', function ($table) {
-            $table->enum('reaction', ['LIKE', 'HATE', 'DELETE'])->nullable()->comment('Cảm xúc');
+            $table->enum('reaction', ['LIKE', 'HATE', 'DELETE'])
+                ->after('content')->nullable()->comment('Reaction: [LIKE, HATE, DELETE]');
             $table->dropColumn('like');
             $table->dropColumn('dislike');
         });

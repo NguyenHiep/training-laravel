@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class PageController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -16,9 +17,22 @@ class HomeController extends Controller
         $apiList = [
             'baseUrl'          => route('home'),
             'getCommentLatest' => route('api.comments.latest'),
-            'getCompanyList'   => route('home') . '/company-list',
-            'getCompanySearch' => route('home') . 'company-search',
+            'getCompanyList'   => route('api.companies.list')
         ];
         return view('home')->with('apiList', $apiList);
+    }
+
+    public function company($slug)
+    {
+        $company = Company::where('slug', $slug)->first();
+        if (empty($company)) {
+            abort(404);
+        }
+        $apiList = [
+            'baseUrl'          => route('home'),
+            'getCompanyDetail' => route('api.companies.detail', ['slug' => $company->slug]),
+            'getCommentDetail' => route('api.companies.comment.detail', ['id' => $company->id]),
+        ];
+        return view('company')->with('apiList', $apiList);
     }
 }

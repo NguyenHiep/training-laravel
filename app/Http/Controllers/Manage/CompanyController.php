@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Manage\BaseController as BaseController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CompanyController extends BaseController
 {
@@ -16,14 +17,15 @@ class CompanyController extends BaseController
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data, int $id = null)
     {
         return Validator::make($data, [
-            'name'    => ['required', 'string', 'max:255', 'unique:companies'],
+            'name'    => ['required', 'string', 'max:255', 'unique:companies,name,' . $id],
+            'slug'    => ['required', 'string', 'max:255', 'unique:companies,slug,' . $id],
             'type'    => ['required', 'string'],
             'size'    => ['required', 'integer', 'min:0'],
             'address' => ['required', 'string'],
-            'logo'    => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'logo'    => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'status'  => ['required', 'integer', 'min:0', 'max:1']
         ]);
     }
@@ -34,7 +36,9 @@ class CompanyController extends BaseController
      */
     public function index()
     {
-        $companies = Company::paginate(self::LIMIT);
+        $companies = Company::withCount(['comments' => function($query) {
+            return $query->groupBy('company_id');
+        }])->paginate(self::LIMIT);
         return view('manage.companies.list')->with(['companies' => $companies]);
     }
 
@@ -58,15 +62,24 @@ class CompanyController extends BaseController
     {
         $inputs = $request->all();
         $inputs['status'] = $request->input('status', 0);
+        $inputs['slug'] = Str::slug($request->input('name'));
         $validator = $this->validator($inputs);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
         // Upload logo image
-        $pathLogo = Storage::putFile('companies', $request->file('logo'));
-        $inputs['logo'] = $pathLogo;
+        if ($request->hasFile('logo')) {
+            $pathLogo = Storage::putFile('companies', $request->file('logo'));
+            $inputs['logo'] = $pathLogo;
+        }
         $company = Company::create($inputs);
         if (!empty($company['id'])) {
+            if ($inputs['save'] === self::SAVE_CLOSE) {
+                return redirect()->route('manage.companies.index')->with([
+                    'message' => __('Successfully!'),
+                    'status'  => self::CTRL_MESSAGE_SUCCESS,
+                ]);
+            }
             return redirect()->back()->with([
                 'message' => __('Successfully!'),
                 'status'  => self::CTRL_MESSAGE_SUCCESS,
@@ -76,7 +89,6 @@ class CompanyController extends BaseController
             'message' => __('Wrong!'),
             'status'  => self::CTRL_MESSAGE_ERROR
         ]);
-
     }
 
     /**
@@ -111,7 +123,36 @@ class CompanyController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputs = $request->all();
+        $inputs['status'] = $request->input('status', 0);
+        $inputs['slug'] = Str::slug($request->input('name'));
+        $validator = $this->validator($inputs, $id);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        // Upload logo image
+        if ($request->hasFile('logo')) {
+            $pathLogo = Storage::putFile('companies', $request->file('logo'));
+            $inputs['logo'] = $pathLogo;
+        }
+        $company = Company::findOrFail($id);
+        $company->update($inputs);
+        if (!empty($company['id'])) {
+            if ($inputs['save'] === self::SAVE_CLOSE) {
+                return redirect()->route('manage.companies.index')->with([
+                    'message' => __('Successfully!'),
+                    'status'  => self::CTRL_MESSAGE_SUCCESS,
+                ]);
+            }
+            return redirect()->back()->with([
+                'message' => __('Successfully!'),
+                'status'  => self::CTRL_MESSAGE_SUCCESS,
+            ]);
+        }
+        return redirect()->back()->withInput($inputs)->with([
+            'message' => __('Wrong!'),
+            'status'  => self::CTRL_MESSAGE_ERROR
+        ]);
     }
 
     /**
@@ -122,6 +163,12 @@ class CompanyController extends BaseController
      */
     public function destroy($id)
     {
-        //
+        $company = Company::findOrFail($id);
+        $company->delete();
+        return redirect()->route('manage.companies.index')->with([
+            'message' => __('Successfully!'),
+            'status'  => self::CTRL_MESSAGE_SUCCESS,
+        ]);
     }
+
 }

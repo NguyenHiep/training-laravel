@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="toolbar mb-3">
-                    <a href="{{ route('manage.companies.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                    <a href="{{ route('manage.comments.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
                 </div>
                 @if (session('status'))
                 <div class="alert alert-{{ session('status') ?? 'success' }} alert-dismissible fade show" role="alert">
@@ -27,60 +27,51 @@
                         </ul>
                     </div>
                 @endif
-                <h1>Thêm mới công ty</h1>
-                <form action="{{ route('manage.companies.store') }}" method="POST" enctype="multipart/form-data">
+                <h1>Thêm mới bình luận</h1>
+                <form action="{{ route('manage.comments.store') }}" method="POST">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group col-md-12 ">
-                            <label for="name">Công ty</label>
-                            <input value="{{ old('name') }}" name="name" type="text" class="form-control" id="name" placeholder="Nhập tên công ty" required />
+                        <div class="form-group col-md-12">
+                            <label for="company_name">Công ty</label>
+                            <input value="{{ $company->name }}" type="text" class="form-control" id="company_name" placeholder="Nhập tên công ty" required disabled/>
+                            <input type="hidden" name="company_id" value="{{ $company->id }}" />
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="logo">Logo</label>
-                            <div class="custom-file">
-                                <input name="logo" type="file" class="custom-file-input" id="logo" accept="image/*" required />
-                                <label class="custom-file-label" for="logo">Choose file</label>
-                            </div>
+                        <div class="form-group col-md-12">
+                            <label for="reviewer">Họ tên</label>
+                            <input value="{{ old('reviewer') }}" name="reviewer" type="text" class="form-control" id="reviewer" placeholder="Muốn xưng tên thật thì xưng không thì thui"/>
                         </div>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Địa chỉ</label>
-                        <input value="{{ old('address') }}" name="address" type="text" class="form-control" id="address" placeholder="31 Ngo Be, Phuong 13, Quan Tan Binh" required />
                     </div>
                     <div class="form-row">
-                        @php
-                            $types = [
-                                ''  => 'Choose...',
-                                'Dịch vụ' => 'Dịch vụ',
-                                'Sản phẩm' => 'Sản phẩm'
-                            ];
-                        @endphp
+                        <div class="form-group col-md-12">
+                            <label for="position">Chức vụ</label>
+                            <input value="{{ old('position') }}" name="position" type="text" class="form-control" id="position" placeholder="Dev quèn/HR hay Manager"/>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="content">Review công ty</label>
+                            <textarea rows="5" name="content" class="form-control" placeholder="Bức xúc hay gì thì viết dài dài vô (Tối thiểu 10 kí tự)" required>{{ old('content') }}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="type">Mô hình</label>
-                            <select name="type" id="type" class="form-control" required>
-                                @foreach($types as $key => $type)
-                                    <option value="{{ $key }}" {{ old('type') == $key ? 'selected' : '' }}>{{ $type }}</option>
-                                @endforeach
+                            <label for="star">Cho điểm công ty</label>
+                            <select name="star" id="star" class="form-control">
+                                <option value="">Select</option>
+                                @if(count(__('selector.star')) > 0)
+                                    @foreach(__('selector.star') as $star => $value)
+                                        <option value="{{ $star }}" {{ old('star', 3) == $star ? 'selected' : '' }}>{{  $value }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
-                        @php
-                            $sizes = [
-                                ''     => 'Choose...',
-                                '50'   => '< 50',
-                                '100'  => '50 - 100',
-                                '200'  => '150 - 200',
-                                '500'  => '200 - 500',
-                                '1000' => '500 - 1000',
-                                '2000' => '> 1000'
-                            ];
-                        @endphp
                         <div class="form-group col-md-6">
-                            <label for="size">Nhân viên</label>
-                            <select name="size" id="size" class="form-control" required>
-                                @foreach($sizes as $key => $size)
-                                    <option value="{{ $key }}" {{ old('size') == $key ? 'selected' : '' }}>{{ $size }}</option>
-                                @endforeach
+                            <label for="reaction">Phản ứng</label>
+                            <select name="reaction" id="reaction" class="form-control">
+                                <option value="">Select</option>
+                                @if(count(__('selector.reaction')) > 0)
+                                    @foreach(__('selector.reaction') as $reaction => $value)
+                                        <option value="{{ $reaction }}"  {{ old('reaction') == $reaction ? 'selected' : '' }}>{!! $value !!}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
                     </div>

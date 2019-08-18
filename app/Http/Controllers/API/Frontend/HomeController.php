@@ -1,130 +1,89 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\Frontend;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Company;
-use Illuminate\Support\Facades\Validator;
+use App\Comment;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
-class CompanyController extends BaseController
+class HomeController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function getListComment()
     {
-        $companies = Company::all();
-        return $this->sendResponse($companies->toArray(), 'Companies retrieved successfully.');
+        $commentsModel = new Comment();
+        $comments = $commentsModel->getLatestComment();
+        $comments->each(function ($item) {
+            $item->company_url = route('company.detail', [ 'slug' => $item->slug]);
+        });
+        return $this->sendResponse($comments->toArray(), 'get comment successfully');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getListCompany(Request $request)
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'name' => 'required|string',
-            'type' => 'required|string',
-            'size' => 'required|integer|min:0',
-            'address' => 'required|string',
-            'logo' => 'nullable|string',
-            'status' => 'nullable|integer|min:0',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->sendError('Validation Error.', $validator->errors());
+        $textSearch = $request->input('q', '');
+        if (!empty($textSearch)) { // Search and return
+            return $this->searchCompany($textSearch);
         }
-        $company = Company::create($input);
-        return $this->sendResponse($company->toArray(), 'Company created successfully.');
+        $companyModel = new Company();
+        $companies = $companyModel->getListCompany();
+        $companies->each(function ($item) {
+            $item->logo = Storage::url($item->logo);
+            $item->company_url = route('company.detail', [ 'slug' => $item->slug]);
+        });
+        $resultData = [
+            'list_company' => $companies->items(),
+            'paginate'     => [
+                'current_page' => $companies->currentPage(),
+                'last_page'    => $companies->lastPage(),
+                'per_page'     => $companies->perPage(),
+                'total'        => $companies->total(),
+            ]
+        ];
+        return $this->sendResponse($resultData, 'get company successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    private function searchCompany(string $textSearch)
     {
-        $company = Company::find($id);
-        if (is_null($company)) {
-            return $this->sendError('Company not found.');
-        }
-
-        return $this->sendResponse($company->toArray(), 'Company retrieved successfully.');
+        $companyModel = new Company();
+        $companies = $companyModel->searchCompany($textSearch);
+        $companies->each(function ($item) use ($textSearch) {
+            $item->logo = Storage::url($item->logo);
+            $item->company_url = route('company.detail', [ 'slug' => $item->slug]);
+        });
+        return $this->sendResponse($companies->toArray(), 'get data search company successfully');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function getCompanyDetail(string $slug)
     {
-        //
+        $companyModel = new Company();
+        $company = $companyModel->getCompanyDetail($slug);
+        if (empty($company)) {
+            return $this->sendError(__('Company not found'));
+        }
+        $company->logo = Storage::url($company->logo);
+        return $this->sendResponse(collect($company)->toArray(), 'get detail company successfully');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function getCommentByCompanyId(int $companyId)
     {
-        $input = $request->all();
-        $company = Company::find($id);
-        if (is_null($company)) {
-            return $this->sendError('Company not found.');
+        $company = Company::find($companyId);
+        if (empty($company)) {
+            return $this->sendError(__('Company not found'));
         }
-        $validator = Validator::make($input, [
-            'name' => 'required|string',
-            'type' => 'required|string',
-            'size' => 'required|integer|min:0',
-            'address' => 'required|string',
-            'logo' => 'nullable|string',
-            'status' => 'nullable|integer|min:0',
-        ]);
-
-        if($validator->fails()){
-            return $this->sendError('Validation Error.', $validator->errors());
-        }
-        $company->fill($input)->update($input);
-        return $this->sendResponse($company->toArray(), 'Company updated successfully.');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $company = Company::find($id);
-        if (is_null($company)) {
-            return $this->sendError('Company not found.');
-        }
-        $company->delete();
-        return $this->sendResponse($company->toArray(), 'Company deleted successfully.');
+        $commentModel = new Comment();
+        $comments = $commentModel->getCommentByCompanyId($companyId);
+        $resultData = [
+            'list_comment' => $comments->items(),
+            'paginate'     => [
+                'current_page' => $comments->currentPage(),
+                'last_page'    => $comments->lastPage(),
+                'per_page'     => $comments->perPage(),
+                'total'        => $comments->total(),
+            ]
+        ];
+        return $this->sendResponse($resultData, 'get list comment company successfully');
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <home-page :api-list='@json($apiList)'></home-page>
+    <company-page :api-list=@json($apiList)></company-page>
 @endsection

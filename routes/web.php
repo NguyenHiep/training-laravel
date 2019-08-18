@@ -10,13 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
 
-use Illuminate\Support\Facades\Log;
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PageController@index')->name('home');
+Route::get('companies/{slug}', 'PageController@company')->where('slug', '[A-Za-z\-]+')->name('company.detail');
+Route::get('/tnc', function () {
+    return view('tnc');
+})->name('tnc');
+
+Route::get('/fqa', function () {
+    return view('fqa');
+})->name('fqa');
+
+Route::middleware('auth')->namespace('Manage')->prefix('manage')->name('manage.')->group(function () {
+    Route::get('/', function () {
+        return view('manage');
+    })->name('manage');
+    Route::resource('companies', 'CompanyController');
+    Route::resource('comments', 'CommentController');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('companies', 'CompanyController');

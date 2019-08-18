@@ -16,14 +16,18 @@ use Illuminate\Http\Request;
 Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
 
-Route::middleware('auth:api')
-->namespace('API')
-->prefix('v1')
-->name('api.')
-->group( function () {
-    Route::resource('companies', 'CompanyController');
-});
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+# Front end
+Route::namespace('API\Frontend')->prefix('v1')->name('api.')->group(function () {
+    Route::get('comments', 'HomeController@getListComment')->name('comments.latest');
+    Route::get('companies', 'HomeController@getListCompany')->name('companies.list');
+    Route::get('companies/{slug}', 'HomeController@getCompanyDetail')
+        ->name('companies.detail')
+        ->where('slug', '[A-Za-z\-]+');
+    Route::get('companies/{id}/comments', 'HomeController@getCommentByCompanyId')
+        ->name('companies.comment.detail')
+        ->where('id', '[0-9]+');
 });
