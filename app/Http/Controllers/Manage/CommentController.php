@@ -1,12 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manage;
 
+use App\Http\Controllers\Manage\BaseController as BaseController;
 use Illuminate\Http\Request;
-use App\Company;
+use Illuminate\Support\Facades\Validator;
 
-class CompanyController extends Controller
+class CommentController extends BaseController
 {
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @param  int|null  $id
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data, int $id = null)
+    {
+        return Validator::make($data, [
+            'name'    => ['required', 'string', 'max:255', 'unique:companies,id,' . $id],
+            'type'    => ['required', 'string'],
+            'size'    => ['required', 'integer', 'min:0'],
+            'address' => ['required', 'string'],
+            'logo'    => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+            'status'  => ['required', 'integer', 'min:0', 'max:1']
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,8 +67,7 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        $company = Company::findOrFail($id);
-        return view('companies.show', ['company' => $company]);
+        //
     }
 
     /**

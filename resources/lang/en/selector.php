@@ -1,0 +1,10 @@
+<?php
+return [
+    'star' => [
+        1 => '1 điểm - Max sida, né gấp kẻo hối hận',
+        2 => '2 điểm - Hết thuốc chữa, đang tính đường chuồn',
+        3 => '3 điểm - Cũng tạm, để coi sao',
+        4 => '4 điểm - Cũng ngon, nên làm lâu dài',
+        5 => '5 điểm - Công ty tuyệt cmn vời, đuổi cũng méo đi'
+    ]
+];

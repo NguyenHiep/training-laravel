@@ -1,0 +1,354 @@
+/* quicksand-300 - vietnamese */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 300;
+    src: url('fonts/quicksand-v9-vietnamese-300.eot'); /* IE9 Compat Modes */
+    src: local('Quicksand Light'), local('Quicksand-Light'),
+    url('fonts/quicksand-v9-vietnamese-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/quicksand-v9-vietnamese-300.woff2') format('woff2'), /* Super Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-300.woff') format('woff'), /* Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-300.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/quicksand-v9-vietnamese-300.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+/* quicksand-500 - vietnamese */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 500;
+    src: url('fonts/quicksand-v9-vietnamese-500.eot'); /* IE9 Compat Modes */
+    src: local('Quicksand Medium'), local('Quicksand-Medium'),
+    url('fonts/quicksand-v9-vietnamese-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/quicksand-v9-vietnamese-500.woff2') format('woff2'), /* Super Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-500.woff') format('woff'), /* Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-500.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/quicksand-v9-vietnamese-500.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+/* quicksand-regular - vietnamese */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/quicksand-v9-vietnamese-regular.eot'); /* IE9 Compat Modes */
+    src: local('Quicksand Regular'), local('Quicksand-Regular'),
+    url('fonts/quicksand-v9-vietnamese-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/quicksand-v9-vietnamese-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-regular.woff') format('woff'), /* Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/quicksand-v9-vietnamese-regular.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+/* quicksand-700 - vietnamese */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    src: url('fonts/quicksand-v9-vietnamese-700.eot'); /* IE9 Compat Modes */
+    src: local('Quicksand Bold'), local('Quicksand-Bold'),
+    url('fonts/quicksand-v9-vietnamese-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/quicksand-v9-vietnamese-700.woff2') format('woff2'), /* Super Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-700.woff') format('woff'), /* Modern Browsers */
+    url('fonts/quicksand-v9-vietnamese-700.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('fonts/quicksand-v9-vietnamese-700.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+body{
+    font-family: 'Quicksand', sans-serif;
+    background: #f5f7fa;
+    background: linear-gradient(to top, #ece9e6, #ffffff);
+    min-height: 100vh;
+    color: #4a4a4a;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+h1 {
+    font-size: 1.6rem;
+}
+h2 {
+    font-size: 1.5rem;
+}
+h3 {
+    font-size: 1.4rem;
+}
+a {
+    color: #00b7ff;
+    text-decoration: none;
+}
+a:hover{
+    color: #4a4a4a;
+    text-decoration: none;
+}
+.main-container {
+    min-height: calc(100vh - 120px);
+}
+.main-nav {
+    background-color: #464d5c;
+    background: linear-gradient(to right, #464d5c, #302b63, #24243e);
+}
+.main-nav .logo {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.main-nav .logo a {
+    color: #fff;
+    text-decoration: none;
+}
+.main-nav .logo-img {
+    width: 6rem;
+}
+.bg-banner {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    box-shadow: 0 4px 3px rgba(10, 10, 10, 0.1)
+}
+.bg-banner .bg-banner-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 240px;
+    opacity: 0.6;
+    background: linear-gradient(to right, #464d5c, #302b63, #24243e);
+}
+.section-search {
+    position: relative;
+    margin-top: -235px;
+}
+.bg-description h2 {
+    color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 2rem;
+}
+
+.main-content {
+    padding-top: 8.5rem;
+}
+/** Styel for company */
+.companies {
+    background-color: #fff;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    color: #4a4a4a;
+}
+.company-item:nth-child(even) {
+    background-image: linear-gradient(to top, #e6e9f06b 0%, #eef1f56e 100%);
+}
+.company-item:nth-child(even):hover {
+    background: #f1f2f2;
+}
+.company-item {
+    display: block;
+}
+
+.company-info__name {
+    margin-left: 4px;
+    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+    a {
+        color: #00b7ff;
+        text-decoration: none;
+        &:hover {
+            color: #363636;
+        }
+    }
+}
+.company-item:hover {
+    background: #f1f2f2;
+    border-left: 2px solid #3273dc;
+    cursor: pointer;
+}
+.company-info {
+    display: flex;
+    padding: 0.5rem;
+    align-items: center;
+    flex-direction: row;
+}
+.company-info__logo {
+    margin-right: 0.5rem;
+    display: flex;
+    min-width: 64px;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+}
+.company-info__rating span.icon{
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+}
+.main-footer {
+    color: white;
+    background-color: #464d5c;
+    background: linear-gradient(to right, #464d5c, #302b63, #24243e);
+    flex-basis: 40px;
+    padding: 0.5rem 0;
+}
+.main-footer a {
+    text-decoration: none;
+}
+.main-footer a:hover{
+    color: #fff;
+}
+/*** Style pagination */
+.pagination-list {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.pagination-list .pagination-summary {
+    padding-right: 15px;
+}
+.pagination-list .pagination {
+    margin: 0;
+}
+.pagination .page-link {
+    min-width: 2.25em;
+    text-align: center;
+    margin: .25rem;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-color: #dbdbdb;
+    color: #363636;
+}
+.pagination .page-link:focus {
+    border-color: #3273dc;
+    outline: 0;
+}
+
+/** Style for sidebar */
+.summary-reviews h3{
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+/* Page detail companies */
+.text-500 {
+    font-weight: 500;
+}
+.breadcrumb {
+    background: transparent;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.breadcrumb li:first-child a {
+    padding-left: 0;
+}
+.breadcrumb li+li::before {
+    color: #b5b5b5;
+    content: "\0002f";
+}
+.breadcrumb li.active{
+    padding-left: 15px;
+}
+.breadcrumb li.active > span {
+    padding-left: 15px;
+}
+.breadcrumb a {
+    color: #3273dc;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+    transition: 0.2s all;
+}
+.breadcrumb a > i.fa-home {
+    margin-right: 0.5em;
+}
+.block-company {
+    position: relative;
+    color: #4a4a4a;
+}
+.block-company .company-info {
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+.btn-review {
+    position: absolute;
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+    opacity: 0.85;
+    border: none;
+    top: 1.8rem;
+    right: 1.5rem;
+    transition: 0.2s all;
+    border-radius: 290486px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.list-review {
+    margin-top: 0.7em;
+}
+.review {
+    margin-bottom: 1rem;
+}
+.card {
+    background-color: #fff;
+    box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+    color: #4a4a4a;
+    max-width: 100%;
+    position: relative;
+    border: none;
+}
+.card-header {
+    background-color: transparent;
+    align-items: stretch;
+    box-shadow: 0 1px 2px rgba(10,10,10,.1);
+    display: flex;
+    padding: 0.75rem;
+}
+.card-header-title {
+    margin: 0;
+    flex-grow: 1;
+    color: #363636;
+    font-weight: 700;
+}
+.card-content {
+    padding: 0.75rem;
+}
+.review__time {
+    padding-right: 0.75rem;
+}
+.card-footer {
+    align-items: stretch;
+    display: flex;
+    padding: 0;
+    background-color: transparent;
+    border-top: 1px solid #dbdbdb;
+}
+.card-footer-item {
+    align-items: center;
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: .25rem;
+}
+.card-footer-item:not(:last-child) {
+    border-right: 1px solid #dbdbdb;
+}
+.card-footer-item.clickable:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+.has-text-info {
+    color: #209cee!important;
+}
+.has-text-success {
+    color: #23d160!important;
+}
+.has-text-danger {
+    color: #ff3860!important;
+}
+.list-review .review .icon-reply {
+    position: relative;
+    left: -5px;
+}
+.list-review .review .icon-like,
+.list-review .review .icon-dislike,
+.list-review .review .icon-ban {
+    position: relative;
+    left: 5px;
+    top: -1px;
+}
