@@ -26,6 +26,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.10.1",
         "moment": "^2.24.0",
+        "vue-recaptcha": "^1.2.0",
         "vuejs-paginate": "^2.1.0"
     }
 }

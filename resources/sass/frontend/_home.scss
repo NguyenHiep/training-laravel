@@ -1,3 +1,4 @@
+@import "../variables.scss";
 /* quicksand-300 - vietnamese */
 @font-face {
     font-family: 'Quicksand';
@@ -78,43 +79,48 @@ a:hover{
     text-decoration: none;
 }
 .main-container {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 136px);
 }
 .main-nav {
     background-color: #464d5c;
     background: linear-gradient(to right, #464d5c, #302b63, #24243e);
+    .logo {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+    .logo-img {
+        width: 6rem;
+    }
 }
-.main-nav .logo {
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-.main-nav .logo a {
-    color: #fff;
-    text-decoration: none;
-}
-.main-nav .logo-img {
-    width: 6rem;
-}
+
 .bg-banner {
     position: relative;
     height: 240px;
     overflow: hidden;
-    box-shadow: 0 4px 3px rgba(10, 10, 10, 0.1)
+    box-shadow: 0 4px 3px rgba(10, 10, 10, 0.1);
+
+    .bg-banner-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 240px;
+        opacity: 0.6;
+        background: linear-gradient(to right, #464d5c, #302b63, #24243e);
+    }
 }
-.bg-banner .bg-banner-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 240px;
-    opacity: 0.6;
-    background: linear-gradient(to right, #464d5c, #302b63, #24243e);
-}
+
 .section-search {
     position: relative;
     margin-top: -235px;
+    padding-bottom: 7.5rem;
 }
+
 .bg-description h2 {
     color: #fff;
     padding-top: 30px;
@@ -123,7 +129,7 @@ a:hover{
 }
 
 .main-content {
-    padding-top: 8.5rem;
+    padding-top: 1.5rem;
 }
 /** Styel for company */
 .companies {
@@ -131,14 +137,21 @@ a:hover{
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
     color: #4a4a4a;
 }
-.company-item:nth-child(even) {
-    background-image: linear-gradient(to top, #e6e9f06b 0%, #eef1f56e 100%);
-}
-.company-item:nth-child(even):hover {
-    background: #f1f2f2;
-}
+
 .company-item {
     display: block;
+    &:nth-child(even) {
+        background-image: linear-gradient(to top, #e6e9f06b 0%, #eef1f56e 100%);
+        &:hover {
+            background: #f1f2f2;
+        }
+    }
+
+    &:hover {
+        background: #f1f2f2;
+        border-left: 2px solid #3273dc;
+        cursor: pointer;
+    }
 }
 
 .company-info__name {
@@ -153,17 +166,14 @@ a:hover{
         }
     }
 }
-.company-item:hover {
-    background: #f1f2f2;
-    border-left: 2px solid #3273dc;
-    cursor: pointer;
-}
+
 .company-info {
     display: flex;
     padding: 0.5rem;
     align-items: center;
     flex-direction: row;
 }
+
 .company-info__logo {
     margin-right: 0.5rem;
     display: flex;
@@ -172,6 +182,7 @@ a:hover{
     width: 64px;
     height: 64px;
 }
+
 .company-info__rating span.icon{
     font-size: 1rem;
     width: 1rem;
@@ -180,44 +191,54 @@ a:hover{
     display: inline-flex;
     justify-content: center;
 }
+
 .main-footer {
     color: white;
     background-color: #464d5c;
     background: linear-gradient(to right, #464d5c, #302b63, #24243e);
     flex-basis: 40px;
     padding: 0.5rem 0;
+    a {
+        text-decoration: none;
+        &:hover {
+            color: #fff;
+        }
+    }
 }
-.main-footer a {
-    text-decoration: none;
-}
-.main-footer a:hover{
-    color: #fff;
-}
+
 /*** Style pagination */
 .pagination-list {
     display: flex;
     align-items: center;
     padding: 0.5rem;
+    .pagination-summary {
+        padding-right: 15px;
+    }
+    .pagination {
+        margin: 0;
+    }
 }
-.pagination-list .pagination-summary {
-    padding-right: 15px;
-}
+//.pagination-list .pagination-summary {
+//    padding-right: 15px;
+//}
 .pagination-list .pagination {
     margin: 0;
 }
-.pagination .page-link {
-    min-width: 2.25em;
-    text-align: center;
-    margin: .25rem;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    border-color: #dbdbdb;
-    color: #363636;
-}
-.pagination .page-link:focus {
-    border-color: #3273dc;
-    outline: 0;
+.pagination {
+    .page-link {
+        min-width: 2.25em;
+        text-align: center;
+        margin: .25rem;
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        border-color: #dbdbdb;
+        color: #363636;
+        &:focus {
+            border-color: #3273dc;
+            outline: 0;
+        }
+    }
 }
 
 /** Style for sidebar */
@@ -233,37 +254,39 @@ a:hover{
     background: transparent;
     padding-left: 0;
     margin-bottom: 0;
+    li:first-child a {
+        padding-left: 0;
+    }
+    li+li::before {
+        color: #b5b5b5;
+        content: "\0002f";
+    }
+    li.active{
+        padding-left: 15px;
+        > span {
+            padding-left: 15px;
+        }
+    }
+    a {
+        color: #3273dc;
+        &:hover {
+            text-decoration: underline;
+            transition: 0.2s all;
+        }
+        > i.fa-home {
+            margin-right: 0.5em;
+        }
+    }
 }
-.breadcrumb li:first-child a {
-    padding-left: 0;
-}
-.breadcrumb li+li::before {
-    color: #b5b5b5;
-    content: "\0002f";
-}
-.breadcrumb li.active{
-    padding-left: 15px;
-}
-.breadcrumb li.active > span {
-    padding-left: 15px;
-}
-.breadcrumb a {
-    color: #3273dc;
-}
-.breadcrumb a:hover {
-    text-decoration: underline;
-    transition: 0.2s all;
-}
-.breadcrumb a > i.fa-home {
-    margin-right: 0.5em;
-}
+
 .block-company {
     position: relative;
     color: #4a4a4a;
+    .company-info {
+        background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+    }
 }
-.block-company .company-info {
-    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
-}
+
 .btn-review {
     position: absolute;
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
@@ -275,6 +298,7 @@ a:hover{
     border-radius: 290486px;
     padding-left: 1em;
     padding-right: 1em;
+    font-size: 1.2rem;
 }
 .list-review {
     margin-top: 0.7em;
@@ -360,8 +384,9 @@ a:hover{
         position: absolute;
         left: 50%;
         margin-left: -50px;
-        top: 50%;
+        top: 10%;
         margin-top: -50px;
+        z-index: 10
     }
 }
 /** Auto complete */

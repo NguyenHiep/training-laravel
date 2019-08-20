@@ -24,7 +24,7 @@ class PageController extends Controller
 
     public function company($slug)
     {
-        $company = Company::where('slug', $slug)->first();
+        $company = Company::where('slug', $slug)->first(['id', 'slug', 'name']);
         if (empty($company)) {
             abort(404);
         }

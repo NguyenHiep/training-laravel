@@ -1,5 +1,5 @@
 <template>
-   <main v-cloak>
+   <article v-cloak>
        <HomeBanner :base-url="apiList.baseUrl"></HomeBanner>
        <CompanySearch :api-list="apiList"></CompanySearch>
        <section class="container main-content">
@@ -12,7 +12,7 @@
                </div>
            </div>
        </section> <!-- End .main-content -->
-   </main>
+   </article>
 </template>
 <script>
   import HomeBanner from '../components/HomeBanner.vue';

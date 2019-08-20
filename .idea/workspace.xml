@@ -2,93 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Frontend/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/BaseController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/CompanyController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/CommentCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/CompanyCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_05_181524_create_comments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_11_042638_add_column_comments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_18_130711_add_column_companies_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sql/path_01.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/banner.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/admin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CommentLatest.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CompanyList.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CompanySearch.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/HomeBanner.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pages/HomePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/selector.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vi/auth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vi/pagination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vi/passwords.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vi/selector.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vi/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/admin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/_home.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-300.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-300.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-300.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-300.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-300.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-500.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-500.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-500.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-500.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-500.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-700.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-700.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-700.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-700.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-700.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/fonts/quicksand-v9-vietnamese-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/company.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/fqa.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/comments/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/comments/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/comments/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/companies/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/companies/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/tnc.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/training-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/training-laravel.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/components/CommentCompany.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/_fqa.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/CommentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/HomePage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/companies/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage/companies/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/frontend/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/frontend/_home.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -231,15 +159,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/companies" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js/components" />
       <recent name="$PROJECT_DIR$/resources/js/pages" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/app/Http/Resources" />
       <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/companies" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -327,7 +255,8 @@
       <workItem from="1565966038325" duration="2975000" />
       <workItem from="1566009891407" duration="27814000" />
       <workItem from="1566067649270" duration="3792000" />
-      <workItem from="1566095200144" duration="19391000" />
+      <workItem from="1566095200144" duration="19539000" />
+      <workItem from="1566222805105" duration="15978000" />
     </task>
     <servers />
   </component>
