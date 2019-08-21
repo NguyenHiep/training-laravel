@@ -8,6 +8,7 @@
     <title>Review Công ty - Review lương bổng, đãi ngộ, HR, sếp và công việc,... gì cũng có</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"> <!-- CSRF Token -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> <!-- Styles -->
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
 </head>
 <body>
     <div id="app">

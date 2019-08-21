@@ -32,6 +32,7 @@ class PageController extends Controller
             'baseUrl'          => route('home'),
             'getCompanyDetail' => route('api.companies.detail', ['slug' => $company->slug]),
             'getCommentDetail' => route('api.companies.comment.detail', ['id' => $company->id]),
+            'storedComment'    => route('api.comments.store'),
         ];
         return view('company')->with('apiList', $apiList);
     }
