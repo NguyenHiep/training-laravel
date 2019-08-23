@@ -120,11 +120,14 @@
           let responseData = response.data;
           if (responseData.success) {
             //TODO: Push in list comment
-            // Close form comment
             //self.listComment = responseData.data;
+            let commentResult = responseData.data;
+            Object.assign(self.$data, self.resetData()); // Reset data component
+            jQuery("#write_comment").modal('hide');
+            self.resetRecaptcha();
+            self.loading = false;
           }
-          self.loading = false;
-          self.resetRecaptcha();
+
         }).catch(error => {
           console.log(error);
           self.errored = true;

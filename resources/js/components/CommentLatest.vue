@@ -8,23 +8,9 @@
                     <a :href=comment.company_url>{{ comment.company_name }}</a>
                 </h3>
                 <p>{{ comment.created_at | showTimeAgo}}
-                    <span>
-                        <span class="icon text-warning">
-                          <i class="fas fa-star"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="fas fa-star"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="far fa-star"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="far fa-star"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="far fa-star"></i>
-                        </span>
-                    </span>
+                    <span class="icon text-warning" v-for="star in 5" :key="star">
+                       <i class="fa-star" :class="star <= comment.star ? 'fas' : 'far'"></i>
+                   </span>
                 </p>
                 <p>{{ comment.content }}</p>
             </div>

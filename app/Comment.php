@@ -36,7 +36,7 @@ class Comment extends Model
     public function getLatestComment()
     {
         $comments = DB::table('comments as c')
-            ->select('c.id', 'c.reviewer', 'c.content', 'c.created_at', 'co.name as company_name', 'co.slug')
+            ->select('c.id', 'c.reviewer', 'c.star', 'c.content', 'c.created_at', 'co.name as company_name', 'co.slug')
             ->join('companies as co', function ($join) {
                 $join->on('co.id', '=', 'c.company_id')
                     ->where('co.status', self::STATUS_ENABLE);
@@ -57,7 +57,7 @@ class Comment extends Model
     public function getCommentByCompanyId(int $companyId)
     {
         $comments = DB::table('comments as c')
-            ->select('c.id', 'c.reviewer', 'c.content', 'c.position', 'c.reaction', 'c.created_at')
+            ->select('c.id', 'c.reviewer', 'c.star', 'c.content', 'c.position', 'c.reaction', 'c.created_at')
             ->join('companies as co', function ($join) {
                 $join->on('co.id', '=', 'c.company_id')
                     ->where('co.status', self::STATUS_ENABLE);

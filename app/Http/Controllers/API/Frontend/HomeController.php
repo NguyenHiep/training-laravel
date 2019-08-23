@@ -117,8 +117,10 @@ class HomeController extends BaseController
         $resultData = json_decode($response->getBody());
         $isVerifySuccess = $resultData->success ?? false;
         if ($isVerifySuccess) {
-            // TODO: Stored comment
-            return $this->sendResponse([$resultData], 'Stored successfully');
+            $comment = new Comment();
+            $comment->fill($request->all());
+            $comment->save();
+            return $this->sendResponse($comment->toArray(), 'Stored successfully');
         }
         return $this->sendError('Verify failed');
     }

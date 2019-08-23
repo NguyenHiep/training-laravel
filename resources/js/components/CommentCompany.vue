@@ -23,23 +23,9 @@
             <div class="review card" v-for="(comment, key) in listComment" :key="key">
                 <header class="card-header">
                     <p class="card-header-title"> {{ comment.reviewer }}
-                        <span>
-                        <span class="icon text-warning">
-                          <i class="fas fa-star"></i>
+                        <span class="icon text-warning" v-for="star in 5" :key="star">
+                            <i class="fa-star" :class="star <= comment.star ? 'fas' : 'far'"></i>
                         </span>
-                        <span class="icon text-warning">
-                          <i class="fas fa-star"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="fas fa-star-half-alt"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="far fa-star"></i>
-                        </span>
-                        <span class="icon text-warning">
-                          <i class="far fa-star"></i>
-                        </span>
-                    </span>
                     </p>
                     <time class="review__time">{{ comment.created_at | showTimeAgo }}</time>
                     <a class="review__share" href="#"><i class="fas fa-link" style="margin-right: 5px"></i> Share</a>
