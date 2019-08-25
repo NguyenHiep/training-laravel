@@ -8,7 +8,7 @@
                     <a :href=comment.company_url>{{ comment.company_name }}</a>
                 </h3>
                 <p>{{ comment.created_at | showTimeAgo}}
-                    <span class="icon text-warning" v-for="star in 5" :key="star">
+                    <span class="icon has-text-warning" v-for="star in 5" :key="star">
                        <i class="fa-star" :class="star <= comment.star ? 'fas' : 'far'"></i>
                    </span>
                 </p>
@@ -35,7 +35,7 @@
         }
     },
     methods: {
-      getCommentLatest: function () { // TODO: Check api external
+      getCommentLatest: function () {
         let self = this;
         self.loading = true;
         axios.get(self.apiList.getCommentLatest).then(response => {

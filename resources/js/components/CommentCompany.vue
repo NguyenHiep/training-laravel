@@ -23,7 +23,7 @@
             <div class="review card" v-for="(comment, key) in listComment" :key="key">
                 <header class="card-header">
                     <p class="card-header-title"> {{ comment.reviewer }}
-                        <span class="icon text-warning" v-for="star in 5" :key="star">
+                        <span class="icon has-text-warning" v-for="star in 5" :key="star">
                             <i class="fa-star" :class="star <= comment.star ? 'fas' : 'far'"></i>
                         </span>
                     </p>
@@ -92,6 +92,9 @@
           type: String,
           required: true
         }
+      },
+      comment: {
+        type: Object
       }
     },
     data: function () {
@@ -131,6 +134,13 @@
     },
     created() {
       this.getCommentDetail();
+    },
+    watch: {
+      comment: function (newComment) {
+        if (!_.isEmpty(newComment)) {
+          this.listComment.unshift(newComment);
+        }
+      }
     },
     filters: {
       showTimeAgo: function (dateTime) {

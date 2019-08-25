@@ -119,9 +119,7 @@
         axios.post(self.apiList.storedComment, dataSend).then(response => {
           let responseData = response.data;
           if (responseData.success) {
-            //TODO: Push in list comment
-            //self.listComment = responseData.data;
-            let commentResult = responseData.data;
+            self.$emit('storedComment', responseData.data);
             Object.assign(self.$data, self.resetData()); // Reset data component
             jQuery("#write_comment").modal('hide');
             self.resetRecaptcha();

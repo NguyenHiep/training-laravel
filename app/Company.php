@@ -40,8 +40,11 @@ class Company extends Model
     {
         $companies = DB::table('companies as co')
             ->select('co.id', 'co.name', 'co.slug', 'co.type', 'co.size', 'co.address',
-                'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'))
-            ->leftJoin('comments as c', 'c.company_id', '=', 'co.id')
+                'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'), DB::raw('AVG(c.star) AS avg_star'))
+            ->leftJoin('comments as c', function ($leftJoin) {
+                $leftJoin->on('c.company_id', '=', 'co.id');
+                $leftJoin->where('c.status', self::STATUS_ENABLE);
+            })
             ->where('co.status', self::STATUS_ENABLE)
             ->groupBy('co.id')
             ->orderByRaw(DB::raw('COALESCE(GREATEST(co.created_at, MAX(c.created_at)), co.created_at) DESC'))
@@ -73,8 +76,11 @@ class Company extends Model
     {
         $company = DB::table('companies as co')
             ->select('co.id', 'co.name', 'co.slug', 'co.type', 'co.size', 'co.address',
-                'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'))
-            ->leftJoin('comments as c', 'c.company_id', '=', 'co.id')
+                'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'),  DB::raw('AVG(c.star) AS avg_star'))
+            ->leftJoin('comments as c', function ($leftJoin) {
+                $leftJoin->on('c.company_id', '=', 'co.id');
+                $leftJoin->where('c.status', self::STATUS_ENABLE);
+            })
             ->where('co.slug', $slug)
             ->where('co.status', self::STATUS_ENABLE)
             ->groupBy('co.id')

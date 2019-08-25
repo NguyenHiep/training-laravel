@@ -30,23 +30,17 @@
                         <h2 class="company-info__name">
                             <a :href=company.company_url>{{ company.name }}</a>
                             <span class="company-info__rating">
-                        <span>
-                          <span class="icon text-warning">
-                            <i class="fas fa-star"></i>
-                          </span>
-                          <span class="icon text-warning">
-                            <i class="fas fa-star"></i>
-                          </span>
-                          <span class="icon text-warning">
-                            <i class="fas fa-star-half-alt"></i>
-                          </span>
-                          <span class="icon text-warning">
-                            <i class="far fa-star"></i>
-                          </span>
-                          <span class="icon text-warning">
-                            <i class="far fa-star"></i>
-                          </span>
-                        </span>
+                        <span class="icon has-text-warning" v-for="star in 5" :key="star">
+                            <template v-if="company.avg_star >= star">
+                                <i class="fas fa-star"></i>
+                            </template>
+                            <template v-else-if="isFloatNumber(company.avg_star) && Math.round(company.avg_star) == star">
+                                <i class="fas fa-star-half-alt"></i>
+                            </template>
+                            <template v-else>
+                                <i class="far fa-star"></i>
+                            </template>
+                         </span>
                         <span class="rating-count">({{ company.total_comment}})</span>
                       </span>
                         </h2>
@@ -129,7 +123,14 @@
           console.log(error);
           self.errored = true;
         }).finally(() => self.loading = false)
-      }, 300)
+      }, 300),
+      isFloatNumber: function (num) {
+        let numberic = parseInt(num);
+        if (!isNaN(numberic) && num.indexOf('.') != -1) {
+          return true;
+        }
+        return false;
+      }
     },
     created() {
       this.getCompanyList();
