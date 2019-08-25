@@ -100,7 +100,7 @@ class HomeController extends BaseController
             'reviewer'             => 'nullable|string|max:255',
             'position'             => 'nullable|string|max:255',
             'star'                 => 'required|in:1,2,3,4,5',
-            'parent_id'            => 'nullable|integer|gt:0|exists:companies,id'
+            'parent_id'            => 'nullable|integer|gt:0|exists:comments,id'
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors());

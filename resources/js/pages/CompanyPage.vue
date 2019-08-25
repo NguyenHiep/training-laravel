@@ -47,6 +47,7 @@
        <CommentCompany
            :api-list="apiList"
            :comment="comment"
+           @getCommentParent="getCommentParent"
        >
        </CommentCompany>
        <CommentStored
@@ -55,14 +56,23 @@
            @storedComment="getStoredComment"
        >
        </CommentStored>
+       <CommentPopupStored
+           :api-list="apiList"
+           :company="company"
+           @storedReaction="getStoredReaction"
+           :comment_parent="comment_parent"
+       >
+       </CommentPopupStored>
    </article>
 </template>
 <script>
   import _ from 'lodash';
   import CommentStored from '../components/CommentStored.vue';
   import CommentCompany from '../components/CommentCompany.vue';
+  import CommentPopupStored from '../components/CommentPopupStored';
   export default {
     components: {
+      CommentPopupStored,
       CommentStored,
       CommentCompany
     },
@@ -78,6 +88,8 @@
       return {
         company: {},
         comment: {},
+        comment_reaction: {},
+        comment_parent: {},
         loading: false,
         errored: false
       }
@@ -99,6 +111,12 @@
       },
       getStoredComment: function (comment) {
         this.comment = comment;
+      },
+      getStoredReaction: function (reaction) {
+        this.comment_reaction = reaction;
+      },
+      getCommentParent: function (comment) {
+        this.comment_parent = comment; // Get data for $emit
       },
       isFloatNumber: function (num) {
         let numberic = parseInt(num);

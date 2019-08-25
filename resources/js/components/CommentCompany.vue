@@ -22,41 +22,41 @@
         <template v-if="listComment && listComment.length > 0">
             <div class="review card" v-for="(comment, key) in listComment" :key="key">
                 <header class="card-header">
-                    <p class="card-header-title"> {{ comment.reviewer }}
+                    <p class="card-header-title"> {{ comment.reviewer }} <template v-if="comment.position">({{ comment.position }})</template>
                         <span class="icon has-text-warning" v-for="star in 5" :key="star">
                             <i class="fa-star" :class="star <= comment.star ? 'fas' : 'far'"></i>
                         </span>
                     </p>
                     <time class="review__time">{{ comment.created_at | showTimeAgo }}</time>
-                    <a class="review__share" href="#"><i class="fas fa-link" style="margin-right: 5px"></i> Share</a>
+                    <a class="review__share" href="#"><i class="fas fa-link mr-2"></i> Share</a>
                 </header>
                 <div class="card-content">
                     <div class="content text-500" v-html="comment.content"></div>
                 </div>
                 <footer class="card-footer">
-                    <a href="#"class="link-comment card-footer-item clickable">
-                    <span class="icon-reply icon has-text-info">
-                        <i class="fas fa-comments"></i>
-                    </span>Reply
-                    </a>
-                    <span class="link-comment card-footer-item clickable">0
-                    <span class="icon-like icon has-text-success">
-                        <i class="fas fa-thumbs-up"></i>
+                    <span @click="getReaction('COMMENT', comment.id)" class="link-comment card-footer-item clickable" data-toggle="modal" data-target="#reaction_comment">
+                        <span class="icon-reply icon has-text-info">
+                            <i class="fas fa-comments"></i>
+                        </span>Reply
                     </span>
-                </span>
-                    <span class="link-comment card-footer-item clickable">0
-                    <span class="icon-dislike icon has-text-danger">
-                        <i class="fas fa-thumbs-down"></i>
-                    </span>
-                </span>
-                    <span class="link-comment card-footer-item clickable">0
-                    <span class="icon-ban icon is-medium">
-                        <span class="fa-stack fa-md">
-                            <i class="fas fa-comments fa-stack-1x has-text-info"></i>
-                            <i class="fas fa-ban fa-stack-2x has-text-danger"></i>
+                    <span @click="getReaction('LIKE', comment.id)" class="link-comment card-footer-item clickable" data-toggle="modal" data-target="#reaction_comment">0
+                        <span class="icon-like icon has-text-success">
+                            <i class="fas fa-thumbs-up"></i>
                         </span>
                     </span>
-                </span>
+                    <span @click="getReaction('HATE', comment.id)" class="link-comment card-footer-item clickable" data-toggle="modal" data-target="#reaction_comment">0
+                        <span class="icon-dislike icon has-text-danger">
+                            <i class="fas fa-thumbs-down"></i>
+                        </span>
+                    </span>
+                    <span @click="getReaction('DELETE', comment.id)" class="link-comment card-footer-item clickable" data-toggle="modal" data-target="#reaction_comment">0
+                        <span class="icon-ban icon is-medium">
+                            <span class="fa-stack fa-md">
+                                <i class="fas fa-comments fa-stack-1x has-text-info"></i>
+                                <i class="fas fa-ban fa-stack-2x has-text-danger"></i>
+                            </span>
+                        </span>
+                    </span>
                 </footer>
             </div>
         </template>
@@ -130,7 +130,16 @@
           console.log(error);
           self.errored = true;
         }).finally(() => self.loading = false)
-      }, 400)
+      }, 400),
+      getReaction: function (action = 'LIKE', comment_id = 0) {
+        if (comment_id) {
+          let commentParent = {
+            reaction: action,
+            comment_id: comment_id
+          };
+          this.$emit('getCommentParent', commentParent);
+        }
+      }
     },
     created() {
       this.getCommentDetail();
