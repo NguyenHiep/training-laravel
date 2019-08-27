@@ -40,8 +40,7 @@
 </template>
 
 <script>
-  import VueRecaptcha from 'vue-recaptcha';
-  import _ from 'lodash';
+  import commentStoredMixin from '../mixins/commentStoredMixin.js';
   // TODO: move site key
   const SITE_KEY = '6LfNBrQUAAAAAO8s0CWXvr8IsXFvATYatJ01Hor1';
   const REACTION_COMMENT = 'COMMENT';
@@ -51,21 +50,10 @@
   const DEFAULT_CONTENT_LIKE = 'Bác nói đúng vãi, tặng 1 like';
   const DEFAULT_CONTENT_HATE = 'Review nhảm nhí, dislike';
   const DEFAULT_CONTENT_DELETE = 'Xóa review này giùm!';
+
   export default {
-    components: {
-      VueRecaptcha
-    },
+    mixins: [ commentStoredMixin ],
     props: {
-      apiList: {
-        storedComment: {
-          type: String,
-          required: true
-        }
-      },
-      company: {
-        type: Object,
-        required: true
-      },
       comment_parent: {
         type: Object,
         required: true
@@ -75,21 +63,6 @@
       return this.resetData()
     },
     methods: {
-      onVerify: function (response) {
-        if (!_.isEmpty(response)) { // If Verify success
-          this.verifyReCaptcha = true;
-          this.g_recaptcha_response = response;
-        }
-      },
-      onExpired: function () {  // Expired reCaptCha
-        this.g_recaptcha_response = '';
-        this.verifyReCaptcha = false;
-      },
-      resetRecaptcha() {
-        this.$refs.recaptcha.reset(); // Direct call reset method
-        this.verifyReCaptcha = false;
-        this.g_recaptcha_response = '';
-      },
       resetData: function () {
         return {
           siteKey: SITE_KEY,
@@ -100,7 +73,9 @@
             reaction: REACTION_LIKE
           },
           verifyReCaptcha: false,
-          g_recaptcha_response: ''
+          g_recaptcha_response: '',
+          loading: false,
+          errored: false
         }
       },
       storedComment: function () {
