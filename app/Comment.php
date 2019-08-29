@@ -63,6 +63,7 @@ class Comment extends Model
                     ->where('co.status', self::STATUS_ENABLE);
             })
             ->where('c.company_id', $companyId)
+            ->where('c.parent_id', 0)
             ->where('c.status', self::STATUS_ENABLE)
             ->orderBy('id', 'desc')
             ->paginate(10);

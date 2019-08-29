@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Stored reaction comment">
-      <change afterPath="$PROJECT_DIR$/resources/js/mixins/commentStoredMixin.js" afterDir="false" />
+    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Refactor code with mixins">
+      <change afterPath="$PROJECT_DIR$/database/seeds/UsersTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/CommentPopupStored.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentPopupStored.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +266,11 @@
       <workItem from="1566706473850" duration="4517000" />
       <workItem from="1566727719282" duration="18729000" />
       <workItem from="1566755877859" duration="1003000" />
-      <workItem from="1566828136124" duration="7009000" />
+      <workItem from="1566828136124" duration="7356000" />
+      <workItem from="1566924398221" duration="678000" />
+      <workItem from="1566951033164" duration="615000" />
+      <workItem from="1567004811559" duration="5108000" />
+      <workItem from="1567089135933" duration="1077000" />
     </task>
     <task id="LOCAL-00001" summary="[change] Update verify google captcha">
       <created>1566420780814</created>
@@ -295,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566756858153</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[change] Refactor code with mixins">
+      <created>1566867832513</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566867832513</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +331,8 @@
     <MESSAGE value="[change] Save comment, fix bug show store comment" />
     <MESSAGE value="[change] Show rating comment" />
     <MESSAGE value="[change] Stored reaction comment" />
-    <option name="LAST_COMMIT_MESSAGE" value="[change] Stored reaction comment" />
+    <MESSAGE value="[change] Refactor code with mixins" />
+    <option name="LAST_COMMIT_MESSAGE" value="[change] Refactor code with mixins" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

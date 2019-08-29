@@ -43,6 +43,7 @@ class Company extends Model
                 'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'), DB::raw('AVG(c.star) AS avg_star'))
             ->leftJoin('comments as c', function ($leftJoin) {
                 $leftJoin->on('c.company_id', '=', 'co.id');
+                $leftJoin->where('c.parent_id', 0);
                 $leftJoin->where('c.status', self::STATUS_ENABLE);
             })
             ->where('co.status', self::STATUS_ENABLE)
@@ -79,6 +80,7 @@ class Company extends Model
                 'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'),  DB::raw('AVG(c.star) AS avg_star'))
             ->leftJoin('comments as c', function ($leftJoin) {
                 $leftJoin->on('c.company_id', '=', 'co.id');
+                $leftJoin->where('c.parent_id', 0);
                 $leftJoin->where('c.status', self::STATUS_ENABLE);
             })
             ->where('co.slug', $slug)
