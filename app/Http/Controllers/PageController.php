@@ -36,4 +36,14 @@ class PageController extends Controller
         ];
         return view('company')->with('apiList', $apiList);
     }
+
+    public function getPageTnc()
+    {
+        return view('tnc');
+    }
+
+    public function getPageFqa()
+    {
+        return view('fqa');
+    }
 }
