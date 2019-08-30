@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Manage\BaseController;
+use App\Http\Controllers\Manage\BaseController as BaseController;
 
 class ManageController extends BaseController
 {

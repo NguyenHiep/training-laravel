@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Refactor code with mixins">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageController.php" afterDir="false" />
+    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -269,7 +266,7 @@
       <workItem from="1566951033164" duration="615000" />
       <workItem from="1567004811559" duration="5108000" />
       <workItem from="1567089135933" duration="2885000" />
-      <workItem from="1567174017035" duration="3622000" />
+      <workItem from="1567174017035" duration="4956000" />
     </task>
     <task id="LOCAL-00001" summary="[change] Update verify google captcha">
       <created>1566420780814</created>
@@ -306,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566867832513</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[change] Fix bug php artisan optimize">
+      <created>1567199293190</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1567199293190</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +335,8 @@
     <MESSAGE value="[change] Show rating comment" />
     <MESSAGE value="[change] Stored reaction comment" />
     <MESSAGE value="[change] Refactor code with mixins" />
-    <option name="LAST_COMMIT_MESSAGE" value="[change] Refactor code with mixins" />
+    <MESSAGE value="[change] Fix bug php artisan optimize" />
+    <option name="LAST_COMMIT_MESSAGE" value="[change] Fix bug php artisan optimize" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
