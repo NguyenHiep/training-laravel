@@ -34,7 +34,7 @@
                             <template v-if="company.avg_star >= star">
                                 <i class="fas fa-star"></i>
                             </template>
-                            <template v-else-if="isFloatNumber(company.avg_star) && Math.round(company.avg_star) == star">
+                            <template v-else-if="isFloatNumber(company.avg_star) && Math.round(company.avg_star) === star">
                                 <i class="fas fa-star-half-alt"></i>
                             </template>
                             <template v-else>
@@ -77,7 +77,8 @@
 </template>
 <script>
   import _ from 'lodash';
-  import Paginate from 'vuejs-paginate'
+  import Paginate from 'vuejs-paginate';
+
   export default {
     components: {
       Paginate
@@ -125,11 +126,8 @@
         }).finally(() => self.loading = false)
       }, 300),
       isFloatNumber: function (num) {
-        let numberic = parseInt(num);
-        if (!isNaN(numberic) && num.indexOf('.') != -1) {
-          return true;
-        }
-        return false;
+        let number = parseInt(num);
+        return !isNaN(number) && num.indexOf('.') !== -1;
       }
     },
     created() {

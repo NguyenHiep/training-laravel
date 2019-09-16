@@ -29,10 +29,11 @@ class PageController extends Controller
             abort(404);
         }
         $apiList = [
-            'baseUrl'          => route('home'),
-            'getCompanyDetail' => route('api.companies.detail', ['slug' => $company->slug]),
-            'getCommentDetail' => route('api.companies.comment.detail', ['id' => $company->id]),
-            'storedComment'    => route('api.comments.store'),
+            'baseUrl'            => route('home'),
+            'getCompanyDetail'   => route('api.companies.detail', ['slug' => $company->slug]),
+            'getCommentDetail'   => route('api.companies.comment.detail', ['id' => $company->id]),
+            'storedComment'      => route('api.comments.store'),
+            'storedCommentReply' => route('api.comments.store.reply'),
         ];
         return view('company')->with('apiList', $apiList);
     }

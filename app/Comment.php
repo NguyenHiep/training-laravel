@@ -16,8 +16,7 @@ class Comment extends Model
     protected $table = 'comments';
 
     protected $fillable = [
-        'company_id', 'parent_id', 'reviewer', 'position', 'content',
-        'reaction', 'star', 'status'
+        'company_id', 'reviewer', 'position', 'content', 'star', 'status'
     ];
 
     /**
@@ -48,25 +47,38 @@ class Comment extends Model
         return $comments;
     }
 
-    /***
-     * Get comment by company id
-     *
+    /****
+     * Get comment by $companyId
      * @param int $companyId
-     * @return \Illuminate\Support\Collection
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getCommentByCompanyId(int $companyId)
     {
         $comments = DB::table('comments as c')
-            ->select('c.id', 'c.reviewer', 'c.star', 'c.content', 'c.position', 'c.reaction', 'c.created_at')
+            ->select('c.id', 'c.reviewer', 'c.star', 'c.content', 'c.position', 'c.created_at')
             ->join('companies as co', function ($join) {
                 $join->on('co.id', '=', 'c.company_id')
                     ->where('co.status', self::STATUS_ENABLE);
             })
             ->where('c.company_id', $companyId)
-            ->where('c.parent_id', 0)
             ->where('c.status', self::STATUS_ENABLE)
             ->orderBy('id', 'desc')
             ->paginate(10);
+        return $comments;
+    }
+
+    public function getCommentReply(int $commentId)
+    {
+        $comments = DB::table('comments_reply as cr')
+            ->select('cr.id', 'cr.reviewer', 'cr.content', 'cr.reaction', 'cr.created_at')
+            ->join('comments as c', function ($join) {
+                $join->on('c.id', '=', 'cr.comment_id')
+                    ->where('c.status', self::STATUS_ENABLE);
+            })
+            ->where('cr.comment_id', $commentId)
+            ->where('cr.status', self::STATUS_ENABLE)
+            ->orderBy('cr.id', 'desc')
+            ->paginate(5, ['*'], 'p');
         return $comments;
     }
 

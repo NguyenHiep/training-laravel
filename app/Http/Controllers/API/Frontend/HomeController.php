@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Frontend;
 
+use App\CommentReply;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Company;
 use App\Comment;
@@ -76,6 +77,21 @@ class HomeController extends BaseController
         }
         $commentModel = new Comment();
         $comments = $commentModel->getCommentByCompanyId($companyId);
+        //
+        if ($comments->count() > 0) {
+            foreach ($comments as $comment) {
+                $resultComment = $commentModel->getCommentReply($comment->id);
+                $comment->childrens = [
+                    'list_comment' => $resultComment->items(),
+                    'paginate'     => [
+                        'current_page' => $resultComment->currentPage(),
+                        'last_page'    => $resultComment->lastPage(),
+                        'per_page'     => $resultComment->perPage(),
+                        'total'        => $resultComment->total()
+                    ]
+                ];
+            }
+        }
         $resultData = [
             'list_comment' => $comments->items(),
             'paginate'     => [
@@ -99,29 +115,89 @@ class HomeController extends BaseController
             'company_id'           => 'required|integer|gt:0|exists:companies,id',
             'reviewer'             => 'nullable|string|max:255',
             'position'             => 'nullable|string|max:255',
-            'star'                 => 'required|in:1,2,3,4,5',
-            'parent_id'            => 'nullable|integer|gt:0|exists:comments,id'
+            'star'                 => 'required|in:1,2,3,4,5'
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validation Error.', $validator->errors());
         }
-        $dataSend = [
-            'response' => $request->input('g_recaptcha_response'),
-            'secret'   => config('site.secret_key_google'),
-        ];
-        //@link: https://developers.google.com/recaptcha/docs/verify
-        $client = new Client();
-        $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
-            'query' => $dataSend
-        ]);
-        $resultData = json_decode($response->getBody());
-        $isVerifySuccess = $resultData->success ?? false;
-        if ($isVerifySuccess) {
+        if ($this->verifyGoogleRecapcha($request->input('g_recaptcha_response'))) {
             $comment = new Comment();
             $comment->fill($request->all());
             $comment->save();
             return $this->sendResponse($comment->toArray(), 'Stored successfully');
         }
         return $this->sendError('Verify failed');
+    }
+
+    public function storedCommentReply(Request $request)
+    {
+        if (!$request->isMethod('post')) {
+            return $this->sendError('Method not allow');
+        }
+        $validator = Validator::make($request->all(), [
+            'g_recaptcha_response' => 'required|string',
+            'content'              => 'required|min:10',
+            'comment_id'           => 'required|integer|gt:0|exists:comments,id',
+            'reviewer'             => 'nullable|string|max:255',
+            'reaction'             => 'required|string|in:LIKE,HATE,DELETE'
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+
+        if ($this->verifyGoogleRecapcha($request->input('g_recaptcha_response'))) {
+            $comment = new CommentReply();
+            $comment->fill($request->all());
+            $comment->save();
+            return $this->sendResponse($comment->toArray(), 'Stored successfully');
+        }
+        return $this->sendError('Verify failed');
+    }
+
+    public function getCommentReply(int $commentId)
+    {
+        $comment = Comment::find($commentId);
+        if (empty($comment)) {
+            return $this->sendError(__('Comment not found'));
+        }
+        $commentModel = new Comment();
+        $commentsReply = $commentModel->getCommentReply($commentId);
+        $resultData = [
+            'list_comment' => $commentsReply->items(),
+            'paginate'     => [
+                'current_page' => $commentsReply->currentPage(),
+                'last_page'    => $commentsReply->lastPage(),
+                'per_page'     => $commentsReply->perPage(),
+                'total'        => $commentsReply->total(),
+            ]
+        ];
+        return $this->sendResponse($resultData, 'get list comment reply successfully');
+    }
+
+    /****
+     * @param string $responseGoogle
+     * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    private function verifyGoogleRecapcha(string $responseGoogle)
+    {
+        $dataSend = [
+            'response' => $responseGoogle,
+            'secret'   => config('site.secret_key_google'),
+        ];
+        try {
+            //@link: https://developers.google.com/recaptcha/docs/verify
+            $client = new Client();
+            $response = $client->request('POST', 'https://www.google.com/recaptcha/api/siteverify', [
+                'query' => $dataSend
+            ]);
+            $resultData = json_decode($response->getBody());
+            $isVerifySuccess = $resultData->success ?? false;
+        } catch (\Exception $e) {
+            report($e);
+            $isVerifySuccess = false;
+        }
+
+        return $isVerifySuccess;
     }
 }

@@ -58,6 +58,14 @@
                         </span>
                     </span>
                 </footer>
+                <template>
+                    <CommentChild
+                        :api-list="apiList"
+                        :comment="comment"
+                        :key="comment.id"
+                    >
+                    </CommentChild>
+                </template>
             </div>
         </template>
         <h3 v-else class="text-center p-3">Chưa có review nào hết, bạn viết review đi nào hihi!</h3>
@@ -81,10 +89,15 @@
 </template>
 <script>
   import _ from 'lodash';
-  import Paginate from 'vuejs-paginate'
+  import Paginate from 'vuejs-paginate';
+  import CommentChild from './CommentChild';
+  import globalMixin from '../mixins/globalMixin.js';
+
   export default {
+    mixins: [ globalMixin ],
     components: {
-      Paginate
+      Paginate,
+      CommentChild
     },
     props: {
       apiList: {
@@ -149,11 +162,6 @@
         if (!_.isEmpty(newComment)) {
           this.listComment.unshift(newComment);
         }
-      }
-    },
-    filters: {
-      showTimeAgo: function (dateTime) {
-        return moment(dateTime).fromNow();
       }
     }
   }

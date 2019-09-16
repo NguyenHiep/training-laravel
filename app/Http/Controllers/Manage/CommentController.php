@@ -22,11 +22,9 @@ class CommentController extends BaseController
     {
         return Validator::make($data, [
             'company_id' => ['required', 'integer'],
-            'parent_id'  => ['nullable', 'integer', 'min:0'],
             'reviewer'   => ['required', 'string'],
             'position'   => ['required', 'string'],
             'content'    => ['required', 'string'],
-            'reaction'   => ['nullable', 'string', 'in:LIKE,HATE,DELETE'],
             'star'       => ['required', 'integer', 'min:1', 'max:5'],
             'status'     => ['required', 'integer', 'min:0', 'max:1']
         ]);

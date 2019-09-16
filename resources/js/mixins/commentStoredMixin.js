@@ -1,9 +1,6 @@
 import VueRecaptcha from 'vue-recaptcha';
 import _ from 'lodash';
 
-// TODO: move site key
-const SITE_KEY = '6LfNBrQUAAAAAO8s0CWXvr8IsXFvATYatJ01Hor1';
-
 export default {
     components: {
         VueRecaptcha

@@ -1,7 +1,7 @@
 <template>
     <div ref="formReactionComment" class="modal fade" id="reaction_comment" tabindex="-1" role="dialog" aria-labelledby="write reaction comment modal" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-            <form @submit.prevent="storedComment" method="post" action="" class="w-75 mx-auto">
+            <form @submit.prevent="storedCommentReply" method="post" action="" class="w-75 mx-auto">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="form-group mb-0">
@@ -41,8 +41,6 @@
 
 <script>
   import commentStoredMixin from '../mixins/commentStoredMixin.js';
-  // TODO: move site key
-  const SITE_KEY = '6LfNBrQUAAAAAO8s0CWXvr8IsXFvATYatJ01Hor1';
   const REACTION_COMMENT = 'COMMENT';
   const REACTION_LIKE = 'LIKE';
   const REACTION_HATE = 'HATE';
@@ -69,7 +67,6 @@
           comment: {
             reviewer: '',
             content: '',
-            store: '3',
             reaction: REACTION_LIKE
           },
           verifyReCaptcha: false,
@@ -78,19 +75,17 @@
           errored: false
         }
       },
-      storedComment: function () {
+      storedCommentReply: function () {
         let self = this;
         self.loading = true;
         let dataSend = {
           reviewer: self.comment.reviewer,
           content: self.comment.content,
           reaction: self.comment.reaction,
-          company_id: self.company.id,
-          star: self.comment.store,
-          parent_id: self.comment_parent.comment_id,
+          comment_id: self.comment_parent.comment_id,
           g_recaptcha_response: self.g_recaptcha_response
         };
-        axios.post(self.apiList.storedComment, dataSend).then(response => {
+        axios.post(self.apiList.storedCommentReply, dataSend).then(response => {
           let responseData = response.data;
           if (responseData.success) {
             self.$emit('storedReaction', responseData.data);
@@ -110,20 +105,20 @@
     },
     watch: {
       comment_parent: function (newComment) {
-        if (!_.isEmpty(newComment) && newComment.reaction == REACTION_COMMENT) {
+        if (!_.isEmpty(newComment) && newComment.reaction === REACTION_COMMENT) {
           this.comment.reaction = REACTION_LIKE;
           this.comment.content = '';
         }
-        if (!_.isEmpty(newComment) && newComment.reaction == REACTION_LIKE) {
+        if (!_.isEmpty(newComment) && newComment.reaction === REACTION_LIKE) {
           this.comment.reaction = REACTION_LIKE;
           this.comment.content = DEFAULT_CONTENT_LIKE;
         }
-        if (!_.isEmpty(newComment) && newComment.reaction == REACTION_HATE) {
+        if (!_.isEmpty(newComment) && newComment.reaction === REACTION_HATE) {
           this.comment.reaction = REACTION_HATE;
           this.comment.content = DEFAULT_CONTENT_HATE;
           this.comment.store = '2';
         }
-        if (!_.isEmpty(newComment) && newComment.reaction == REACTION_DELETE) {
+        if (!_.isEmpty(newComment) && newComment.reaction === REACTION_DELETE) {
           this.comment.reaction = REACTION_DELETE;
           this.comment.content = DEFAULT_CONTENT_DELETE;
           this.comment.store = '1';

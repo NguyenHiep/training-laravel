@@ -18,7 +18,10 @@
     </section>
 </template>
 <script>
+  import globalMixin from '../mixins/globalMixin.js';
+
   export default {
+    mixins: [ globalMixin ],
     props: {
       apiList: {
         getCommentLatest: {
@@ -52,11 +55,6 @@
     },
     created() {
         this.getCommentLatest();
-    },
-    filters: {
-        showTimeAgo: function (dateTime) {
-          return moment(dateTime).fromNow();
-        }
     }
   }
 </script>
