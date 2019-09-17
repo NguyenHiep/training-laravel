@@ -1,7 +1,7 @@
 <template>
     <div ref="formReactionComment" class="modal fade" id="reaction_comment" tabindex="-1" role="dialog" aria-labelledby="write reaction comment modal" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
-            <form @submit.prevent="storedCommentReply" method="post" action="" class="w-75 mx-auto">
+        <div class="modal-dialog modal-md modal-dialog-scrollable" role="document">
+            <form @submit.prevent="storedCommentReply" method="post" action="" class="w-100 mx-auto">
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="form-group mb-0">

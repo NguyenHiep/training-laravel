@@ -48,6 +48,7 @@
            :api-list="apiList"
            :comment="comment"
            @getCommentParent="getCommentParent"
+           :comment_reply="comment_reaction"
        >
        </CommentCompany>
        <CommentStored

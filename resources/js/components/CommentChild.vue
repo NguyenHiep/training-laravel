@@ -1,5 +1,5 @@
 <template>
-    <div class="review-comments">
+    <div class="review-comments" v-if="listComment.length > 0">
         <div class="comment" v-for="(comment, key) in listComment" :key="key">
             <p class="comment__title" v-if="comment.reaction == 'DELETE'">
                 <span class="has-text-weight-bold"> {{ comment.reviewer}} đã đề nghị xóa ❌</span> {{ comment.created_at | showTimeAgo }}

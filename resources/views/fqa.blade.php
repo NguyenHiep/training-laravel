@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Giải đáp thắc mắc - Yêu cầu xóa review')
+@section('description', 'Review công ty - Giải đáp thắc mắc - Yêu cầu xóa review')
+
 @section('content')
     <section class="container main-content">
         <div class="row">
@@ -13,7 +16,7 @@
                             1. Có công ty tôi muốn review nhưng không thấy trên trang này?
                         </p>
                         <p class="answer">
-                            Bạn vui lòng gửi mail tới <a href="mailto:company@reviewcongty.com?Subject=Thêm%20công%20ty">company@reviewcongty.com</a>
+                            Bạn vui lòng gửi mail tới <a href="mailto:company@review.giadinhit.com?Subject=Thêm%20công%20ty">company@review.giadinhit.com</a>
                             với tiêu đề "Thêm công ty".
                             Nội dung email gồm thông tin thêm về công ty như về tên công ty, địa điểm, website nhé.
                         </p>
@@ -22,7 +25,7 @@
                         </p>
                         <p class="answer">
                             Quý vị vui lòng sử dụng <b>email của công ty</b> để gửi mail
-                            tới <a href="mailto:deletecomment@reviewcongty.com?Subject=Yêu%20cầu%20xóa%20comment">deletecomment@reviewcongty.com</a>
+                            tới <a href="mailto:deletecomment@review.giadinhit.com?Subject=Yêu%20cầu%20xóa%20comment">deletecomment@review.giadinhit.com</a>
                             với tiêu đề "Yêu cầu xóa comment"<br>
                             Việc xóa comment sẽ được thực hiện tùy thuộc vào nội dung comment và thái độ của quí vị/quí công ty.<br>
                             Chúng tôi không lưu trữ bất kì thông tin nào của người dùng nên không thể ban bất kì người dùng

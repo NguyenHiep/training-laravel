@@ -108,6 +108,9 @@
       },
       comment: {
         type: Object
+      },
+      comment_reply: {
+        type: Object
       }
     },
     data: function () {
@@ -160,8 +163,26 @@
     watch: {
       comment: function (newComment) {
         if (!_.isEmpty(newComment)) {
+          newComment.childrens = {
+            list_comment: [],
+             paginate: {
+               current_page: 1,
+               last_page: 1,
+               per_page: 5,
+               total: 0,
+             }
+          }; // Set array empty
           this.listComment.unshift(newComment);
         }
+      },
+      comment_reply: {
+        handler: function (value) {
+          if (!_.isEmpty(value)) {
+            let commentResult = _.find(this.listComment, function(comment) { return comment.id == value.comment_id; });
+            commentResult.childrens.list_comment.unshift(value);
+          }
+        },
+        deep: true
       }
     }
   }

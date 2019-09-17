@@ -35,7 +35,7 @@ class PageController extends Controller
             'storedComment'      => route('api.comments.store'),
             'storedCommentReply' => route('api.comments.store.reply'),
         ];
-        return view('company')->with('apiList', $apiList);
+        return view('company')->with(['apiList' => $apiList, 'company' => $company]);
     }
 
     public function getPageTnc()

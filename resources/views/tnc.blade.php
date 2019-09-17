@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Điều khoản sử dụng - Miễn trừ trách nhiệm')
+@section('description', 'Review công ty - Điều khoản sử dụng - Miễn trừ trách nhiệm')
+
 @section('content')
     <section class="container main-content">
         <div class="row">
@@ -14,9 +17,9 @@
                             IT/Media/Creative
                         </p>
                         <p class="m-t-10">
-                            2. Toàn bộ thông tin đăng tải trên reviewcongty.com là <b>do người dùng cung cấp</b>. Người dùng
+                            2. Toàn bộ thông tin đăng tải trên review.giadinhit.com là <b>do người dùng cung cấp</b>. Người dùng
                             đăng
-                            thông tin lên reviewcongty.com <b>chịu trách nhiệm hoàn toàn về tính xác thực</b> của thông tin đó.
+                            thông tin lên review.giadinhit.com <b>chịu trách nhiệm hoàn toàn về tính xác thực</b> của thông tin đó.
                         </p>
                         <p class="m-t-10">
                             3. Chúng tôi <b>không có trách nhiệm</b> quản lý, chỉnh sửa hoặc xóa bỏ nội dung đăng tải bởi người
