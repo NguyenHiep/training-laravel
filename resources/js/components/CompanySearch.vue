@@ -1,7 +1,7 @@
 <template>
     <section class="container section-search">
         <div class="bg-description">
-            <h2>Review lương bổng, đãi ngộ, HR, sếp và công việc,... gì cũng có</h2>
+            <h2>{{ $t('Review salaries, compensation, HR, boss and job, ... everything') }}</h2>
             <div class="form-search">
                 <form action="" method="get" class="form-search">
                     <div class="input-group">
@@ -13,7 +13,7 @@
                                autocomplete="off"
                                type="text"
                                class="form-control"
-                               placeholder="Tìm công ty"
+                               :placeholder="$t('Find company')"
                                required
                                @keyup="searchCompany()"
                         />

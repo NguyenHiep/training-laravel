@@ -11,5 +11,10 @@ return [
         'LIKE' => '&#128077; Like',
         'HATE' => '&#128078; Đếch lai',
         'DELETE' => '&#10060; Xóa giùm',
+    ],
+    'language' => [
+        'vi' => 'Tiếng việt',
+        'en' => 'Tiếng anh',
+        'jp' => 'Tiếng nhật'
     ]
 ];

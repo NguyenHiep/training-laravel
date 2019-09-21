@@ -13,7 +13,7 @@
             <p class="comment__content text-500">{{ comment.content }}</p>
         </div>
         <nav class="pagination-list" aria-label="Pagination home" v-if="paginate.last_page > 1">
-            <span class="pagination-summary">Trang <b>{{ paginate.current_page}}</b> trên tổng số <b>{{paginate.last_page}}</b></span>
+            <span class="pagination-summary">{{ $t('Page') }} <b>{{ paginate.current_page}}</b> {{ $t('on total') }} <b>{{paginate.last_page}}</b></span>
             <Paginate
                 v-model="paginate.current_page"
                 :page-count=paginate.last_page

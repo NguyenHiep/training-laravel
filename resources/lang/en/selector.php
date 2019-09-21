@@ -1,15 +1,20 @@
 <?php
 return [
     'star' => [
-        1 => '1 điểm - Max sida, né gấp kẻo hối hận',
-        2 => '2 điểm - Hết thuốc chữa, đang tính đường chuồn',
-        3 => '3 điểm - Cũng tạm, để coi sao',
-        4 => '4 điểm - Cũng ngon, nên làm lâu dài',
-        5 => '5 điểm - Công ty tuyệt cmn vời, đuổi cũng méo đi'
+        1 => '1 point - Max sida, dodge or regret',
+        2 => '2 points - Out of cure, are calculating the way out',
+        3 => "3 points - Okay, let's see",
+        4 => "4 points - It's also good, it works long term",
+        5 => '5 points - Great company, distorted pursuit'
     ],
     'reaction' => [
         'LIKE' => '&#128077; Like',
-        'HATE' => '&#128078; Đếch lai',
-        'DELETE' => '&#10060; Xóa giùm',
+        'HATE' => '&#128078; Dislike',
+        'DELETE' => '&#10060; Delete',
+    ],
+    'language' => [
+        'vi' => 'Vietnamese',
+        'en' => 'English',
+        'jp' => 'Japanese'
     ]
 ];

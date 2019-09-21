@@ -5,19 +5,17 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="form-group mb-0">
-                            <label for="reviewer" class="col-form-label">Tên họ</label>
-                            <input id="reviewer" v-model.trim="comment.reviewer" type="text" name="reviewer" class="form-control" placeholder="Muốn xưng tên thật thì xưng không thì thui" />
+                            <label for="reviewer" class="col-form-label">{{ $t('Full name')}}</label>
+                            <input id="reviewer" v-model.trim="comment.reviewer" type="text" name="reviewer" class="form-control" :placeholder="$t('If you want to confess your real name, you will confess your name')" />
                         </div>
                         <div class="form-group mb-0">
-                            <label for="content" class="col-form-label">Comment <span class="has-text-danger">(Bắt buộc)</span></label>
-                            <textarea v-model.trim="comment.content" class="form-control" id="content" name="content" placeholder="Bức xúc hay gì thì viết dài dài vô (Tối thiểu 10 kí tự)" rows="5" required></textarea>
+                            <label for="content" class="col-form-label">{{ $t('Comment')}} <span class="has-text-danger">({{ $t('required')}})</span></label>
+                            <textarea v-model.trim="comment.content" class="form-control" id="content" name="content" :placeholder="$t('If you are annoyed or long, write it long (Minimum of 10 characters)')" rows="5" required></textarea>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="reaction" class="col-form-label">Bày tỏ thái độ</label>
+                            <label for="reaction" class="col-form-label">{{ $t('Express attitude')}}</label>
                             <select v-model="comment.reaction" id="reaction" name="reaction" class="form-control">
-                                <option value="LIKE">👍 Like</option>
-                                <option value="HATE">👎 Đếch lai</option>
-                                <option value="DELETE">❌ Xóa giùm</option>
+                                <option v-for="(value, key) in $t('selector.reaction')" :value="key" v-html="value"></option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -30,8 +28,8 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-start">
-                        <button type="submit" class="btn btn-success" :disabled="!verifyReCaptcha">Đăng Comment</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy bỏ</button>
+                        <button type="submit" class="btn btn-success" :disabled="!verifyReCaptcha">{{ $t('Post Comment')}}</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">{{ $t('Cancel')}}</button>
                     </div>
                 </div>
             </form>

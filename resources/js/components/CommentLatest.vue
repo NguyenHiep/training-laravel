@@ -1,10 +1,10 @@
 <template>
     <section class="summary-reviews">
-        <h2>Review gần đây</h2>
+        <h2>{{ $t('Recent review')}}</h2>
         <div class="list-reviews" v-if="listComment && listComment.length > 0">
             <div class="review" v-for="comment in listComment" :key="comment.id">
                 <h3>
-                    <span class="font-weight-bold">{{ comment.reviewer }}</span> đã review
+                    <span class="font-weight-bold">{{ comment.reviewer }}</span> {{ $t('have reviewed')}}
                     <a :href=comment.company_url>{{ comment.company_name }}</a>
                 </h3>
                 <p>{{ comment.created_at | showTimeAgo}}

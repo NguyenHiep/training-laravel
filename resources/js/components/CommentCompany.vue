@@ -4,7 +4,7 @@
             <i class="fa fa-spin fa-spinner fa-3x"></i>
         </div>
         <nav class="pagination-list" aria-label="Pagination home" v-if="paginate.last_page > 1">
-            <span class="pagination-summary">Trang <b>{{ paginate.current_page}}</b> trên tổng số <b>{{paginate.last_page}}</b></span>
+            <span class="pagination-summary">{{ $t('Page') }} <b>{{ paginate.current_page}}</b> {{ $t('on total') }} <b>{{paginate.last_page}}</b></span>
             <Paginate
                 v-model="paginate.current_page"
                 :page-count=paginate.last_page
@@ -28,7 +28,7 @@
                         </span>
                     </p>
                     <time class="review__time">{{ comment.created_at | showTimeAgo }}</time>
-                    <a class="review__share" href="#"><i class="fas fa-link mr-2"></i> Share</a>
+                    <a class="review__share" href="#"><i class="fas fa-link mr-2"></i> {{ $t('Share') }}</a>
                 </header>
                 <div class="card-content">
                     <div class="content text-500" v-html="comment.content"></div>
@@ -68,9 +68,9 @@
                 </template>
             </div>
         </template>
-        <h3 v-else class="text-center p-3">Chưa có review nào hết, bạn viết review đi nào hihi!</h3>
+        <h3 v-else class="text-center p-3">{{ $t('No review yet, write a review go hihi!')}}</h3>
         <nav class="pagination-list" aria-label="Pagination home" v-if="paginate.last_page > 1">
-            <span class="pagination-summary">Trang <b>{{ paginate.current_page}}</b> trên tổng số <b>{{paginate.last_page}}</b></span>
+            <span class="pagination-summary">{{ $t('Page') }} <b>{{ paginate.current_page}}</b> {{ $t('on total') }} <b>{{paginate.last_page}}</b></span>
             <Paginate
                 v-model="paginate.current_page"
                 :page-count=paginate.last_page

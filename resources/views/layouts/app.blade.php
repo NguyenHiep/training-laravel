@@ -34,24 +34,11 @@
 </head>
 <body>
     <div id="app">
-        <!-- Begin .main-nav -->
-        <nav class="main-nav navbar p-0">
-            <div class="container">
-                <div class="logo">
-                    <a href="{{ url('/') }}"><img class="logo-img" src="{{ asset('images/logo.png') }}" alt="logo" /></a>
-                    <h1 class="logo-title"><a href="{{ url('/') }}">Review Công ty</a></h1>
-                </div>
-            </div>
-        </nav>
-        <!-- End .main-nav -->
+        <app-header></app-header>
         <main class="main-container">
             @yield('content')
         </main>
-        <footer class="main-footer">
-            <div class="container">
-                <a href="{{ route('fqa') }}" target="_blank">Giải đáp thắc mắc - Yêu cầu xóa review</a> | <a href="{{ route('tnc') }}" target="_blank">Điều khoản sử dụng</a>
-            </div>
-        </footer>
+        <app-footer></app-footer>
     </div>
     <script src="/js/app.js" defer></script> <!-- Scripts -->
     @stack('scripts')

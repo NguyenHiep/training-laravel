@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         // Package add new
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
 
     ],
 

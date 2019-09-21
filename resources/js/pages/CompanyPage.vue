@@ -3,9 +3,9 @@
        <nav class="container">
            <ul class="breadcrumb list-unstyled">
                <li>
-                   <a :href=apiList.baseUrl title="Trang chủ"><i class="fas fa-home" aria-hidden="true"></i>Trang chủ</a>
+                   <a :href=apiList.baseUrl :title="$t('Home page')"><i class="fas fa-home" aria-hidden="true"></i>{{ $t('Home page') }}</a>
                </li>
-               <li class="active" v-if="company.name"><span>Review Công ty {{ company.name }}</span></li>
+               <li class="active" v-if="company.name"><span>{{ $t('Company Review') }} {{ company.name }}</span></li>
            </ul>
        </nav>
        <section class="container block-company">
@@ -41,7 +41,7 @@
                </div> <!-- .company-info__detail -->
            </div>
            <button class="btn btn-success btn-review" data-toggle="modal" data-target="#write_comment">
-               <span class="icon"><i class="fas fa-pencil-alt"></i></span> &nbsp;&nbsp;Viết review
+               <span class="icon"><i class="fas fa-pencil-alt"></i></span> {{ $t('Write a review') }}
            </button>
        </section>
        <CommentCompany

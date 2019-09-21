@@ -4,32 +4,28 @@
             <form @submit.prevent="storedComment" method="post" action="">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" v-if="company.name">Viết Review công ty {{ company.name}}</h2>
+                    <h2 class="modal-title" v-if="company.name">{{ $t('Write a Review Company') }} {{ company.name}}</h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body pt-0">
                     <div class="form-group mb-0">
-                        <label for="reviewer" class="col-form-label">Tên họ</label>
-                        <input id="reviewer" v-model.trim="comment.reviewer" type="text" name="reviewer" class="form-control" placeholder="Muốn xưng tên thật thì xưng không thì thui" />
+                        <label for="reviewer" class="col-form-label">{{ $t('Full name') }}</label>
+                        <input id="reviewer" v-model.trim="comment.reviewer" type="text" name="reviewer" class="form-control" :placeholder="$t('If you want to confess your real name, you will confess your name')" />
                     </div>
                     <div class="form-group mb-0">
-                        <label for="position" class="col-form-label">Chức vụ</label>
-                        <input id="position" v-model="comment.position" type="text" name="position" class="form-control" placeholder="Dev quèn/HR hay Manager" />
+                        <label for="position" class="col-form-label">{{ $t('Position') }}</label>
+                        <input id="position" v-model.trim="comment.position" type="text" name="position" class="form-control" :placeholder="$t('Dev / HR or Manager')" />
                     </div>
                     <div class="form-group mb-0">
-                        <label for="content" class="col-form-label">Review công ty <span class="has-text-danger">(Bắt buộc)</span></label>
-                        <textarea v-model.trim="comment.content" class="form-control" id="content" name="content" placeholder="Bức xúc hay gì thì viết dài dài vô (Tối thiểu 10 kí tự)" rows="5" required></textarea>
+                        <label for="content" class="col-form-label">{{ $t('Company Review') }} <span class="has-text-danger">({{ $t('required')}})</span></label>
+                        <textarea v-model.trim="comment.content" class="form-control" id="content" name="content" :placeholder="$t('If you are annoyed or long, write it long (Minimum of 10 characters)')" rows="5" required></textarea>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="score" class="col-form-label">Cho điểm công ty</label>
+                        <label for="score" class="col-form-label">{{ $t('Score company') }}</label>
                         <select v-model="comment.store" id="score" name="score" class="form-control">
-                            <option value="1">1 điểm - Max sida, né gấp kẻo hối hận</option>
-                            <option value="2">2 điểm - Hết thuốc chữa, đang tính đường chuồn</option>
-                            <option value="3">3 điểm - Cũng tạm, để coi sao</option>
-                            <option value="4">4 điểm - Cũng ngon, nên làm lâu dài</option>
-                            <option value="5">5 điểm - Công ty tuyệt cmn vời, đuổi cũng méo đi</option>
+                            <option v-for="(value, key) in $t('selector.star')" :value="key">{{ value}}</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -40,11 +36,11 @@
                             :sitekey="siteKey">
                         </vue-recaptcha>
                     </div>
-                    <p class="m-t-5">Người đăng chịu trách nhiệm về tính xác thực của nội dung chứ <strong>bên mình không có chịu</strong>, okay?</p>
+                    <p class="m-t-5">{{ $t('The poster is responsible for the authenticity of the content and does not accept it, okay?') }}</p>
                 </div>
                 <div class="modal-footer justify-content-start">
-                    <button type="submit" class="btn btn-success" :disabled="!verifyReCaptcha">Đăng review</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-success" :disabled="!verifyReCaptcha">{{ $t('Post a review') }}</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">{{ $t('Cancel') }}̉</button>
                 </div>
             </div>
             </form>
