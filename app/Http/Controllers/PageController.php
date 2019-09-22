@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    const LIST_LANGUAGE = ['vi', 'en', 'ja'];
+
     /**
      * Show the application dashboard.
      *
@@ -46,5 +48,21 @@ class PageController extends Controller
     public function getPageFqa()
     {
         return view('fqa');
+    }
+
+    public function handleLanguage(Request $request, $locale)
+    {
+        $result = [
+            'success' => false,
+            'message' => ''
+        ];
+        if (in_array($locale, self::LIST_LANGUAGE)) {
+            $request->session()->put('locale', $locale);
+            $result = [
+                'success' => true,
+                'message' => __('Action complete')
+            ];
+        }
+        return response()->json($result);
     }
 }

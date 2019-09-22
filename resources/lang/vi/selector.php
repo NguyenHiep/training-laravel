@@ -13,8 +13,17 @@ return [
         'DELETE' => '&#10060; Xóa giùm',
     ],
     'language' => [
-        'vi' => 'Tiếng việt',
-        'en' => 'Tiếng anh',
-        'jp' => 'Tiếng nhật'
+        'vi' => [
+            'label' => 'Tiếng việt',
+            'flag'  => '<i class="flag flag-vn"></i>',
+        ],
+        'en' => [
+            'label' => 'English',
+            'flag'  => '<i class="flag flag-us"></i>',
+        ],
+        'ja' => [
+            'label' => 'Japanese',
+            'flag'  => '<i class="flag flag-jp"></i>',
+        ]
     ]
 ];

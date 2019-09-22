@@ -11,19 +11,16 @@
                     <li class="nav-item dropdown">
                         <a id="dropdown_select_language" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-language"></i>
-                            <span class="country-name"> {{ $t('selector.language.' + selectedLanguage) }}</span>
+                            <span class="country-name"> {{ $t('selector.language.' + $root.$i18n.locale + '.label') }}</span>
                         </a>
                         <div v-if="$t('selector.language')" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown_select_language">
-                            <a class="dropdown-item" href="#"
+                            <a class="dropdown-item" href="javascript:void(0)"
                                v-for="(language, key) in $t('selector.language')"
                                :key="key"
-                               @click="switcherLanguage(key)"
+                               @click="switcherLanguage(key); $root.$i18n.locale = key"
                             >
-<!--                                <i class="flag flag-vn"></i>
-<i class="flag flag-us"></i><i class="flag flag-jp"></i>
-
--->
-                                <span class="country-name">{{ language }}</span>
+                                <span v-html="language.flag"></span>
+                                <span class="country-name">{{ language.label }}</span>
                             </a>
                         </div>
                     </li>
@@ -35,16 +32,14 @@
 </template>
 <script>
   export default {
-    data: function () {
-      return {
-        selectedLanguage: 'vi'
-      }
-    },
     methods: {
       switcherLanguage: function (language) {
-        this.selectedLanguage = language;
-        //TODO: Save selected language with session
-
+        moment.locale(language); // Set location moment
+        axios.get('/language/' + language).then(response => {
+        }).catch(error => {
+          console.log(error);
+        }).finally(function () {
+        })
       }
     }
   }

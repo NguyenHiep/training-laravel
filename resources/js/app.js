@@ -9,8 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 window.moment = require('moment');
-require('moment/locale/vi'); // Set locate moment js
-
+require('moment/min/locales.min');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -39,8 +38,12 @@ import Footer from './includes/Footer.vue';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 const lang = document.documentElement.lang.substr(0, 2);
+
+moment.locale(lang); // // Set locate moment js by lang current
+
 const i18n = new VueInternationalization({
     locale: lang,
+    fallbackLocale: window.fallback_locale,
     messages: Locale
 });
 const app = new Vue({

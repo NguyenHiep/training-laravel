@@ -20,6 +20,7 @@ Route::get('/', 'PageController@index')->name('home');
 Route::get('companies/{slug}', 'PageController@company')->where('slug', '[A-Za-z\-]+')->name('company.detail');
 Route::get('/tnc', 'PageController@getPageTnc')->name('tnc');
 Route::get('/fqa', 'PageController@getPageFqa')->name('fqa');
+Route::get('language/{locale}', 'PageController@handleLanguage')->name('handle.language');
 
 Route::middleware('auth')->namespace('Manage')->prefix('manage')->name('manage.')->group(function () {
     Route::get('/', 'ManageController@index')->name('manage');

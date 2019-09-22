@@ -29,6 +29,8 @@
     <script type="text/javascript">
       /* <![CDATA[ */
       var SITE_KEY = '{{ config('site.site_key_google') }}';
+      window.default_locale = "{{ config('app.locale') }}";
+      window.fallback_locale = "{{ config('app.fallback_locale') }}";
       /* ]]> */
     </script>
 </head>

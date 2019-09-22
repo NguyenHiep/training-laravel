@@ -13,8 +13,17 @@ return [
         'DELETE' => '&#10060; Delete',
     ],
     'language' => [
-        'vi' => 'Vietnamese',
-        'en' => 'English',
-        'jp' => 'Japanese'
+        'vi' => [
+            'label' => 'Vietnamese',
+            'flag'  => '<i class="flag flag-vn"></i>',
+        ],
+        'en' => [
+            'label' => 'English',
+            'flag'  => '<i class="flag flag-us"></i>',
+        ],
+        'ja' => [
+            'label' => 'Japanese',
+            'flag'  => '<i class="flag flag-jp"></i>',
+        ]
     ]
 ];

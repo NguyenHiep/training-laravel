@@ -13,8 +13,17 @@ return [
         'DELETE' => '&#10060; 削除する',
     ],
     'language' => [
-        'vi' => 'ベトナム人',
-        'en' => '英語',
-        'jp' => '日本語'
-    ]
+        'vi' => [
+            'label' => 'ベトナム人',
+            'flag'  => '<i class="flag flag-vn"></i>',
+        ],
+        'en' => [
+            'label' => '英語',
+            'flag'  => '<i class="flag flag-us"></i>',
+        ],
+        'ja' => [
+            'label' => '日本語',
+            'flag'  => '<i class="flag flag-jp"></i>',
+        ]
+    ],
 ];
