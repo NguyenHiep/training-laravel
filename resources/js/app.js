@@ -4,6 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -28,9 +29,11 @@ import Locale from './vue-i18n-locales.generated';
 
 Vue.use(VueInternationalization);
 
-import Header from './includes/Header';
+import Header from './includes/Header.vue';
 import HomePage from './pages/HomePage.vue';
 import CompanyPage from './pages/CompanyPage.vue';
+import FqaPage from './pages/FqaPage.vue';
+import TncPage from './pages/TncPage.vue';
 import Footer from './includes/Footer.vue';
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -52,6 +55,8 @@ const app = new Vue({
     components: {
         'home-page': HomePage,
         'company-page': CompanyPage,
+        'fqa-page': FqaPage,
+        'tnc-page': TncPage,
         'app-header': Header,
         'app-footer': Footer
     }

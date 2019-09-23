@@ -27,5 +27,9 @@
     "Cancel": "キャンセル̉",
     "Express attitude": "態度を表現する",
     "Data empty": "データが空です",
-    "Share": "シェア"
+    "Share": "シェア",
+    "Terms of use - Disclaimer": "利用規約-免責事項",
+    "Troubleshooting": "トラブルシューティング",
+    "content_page_fqa": "<p class=\"question\">\n    1.確認したいが、このページに表示できない会社はありますか？\n</p>\n<p class=\"answer\">\n    「会社の追加」という件名のメールを<a href=\"mailto:company@review.giadinhit.com?subject=会社の追加\">company@review.giadinhit.com</a>に送信してください。メールのコンテンツには、会社名、場所、ウェブサイトなど、会社に関する追加情報が含まれています。\n</p>\n<p class=\"question\">\n    2.コメント/ユーザーボードを削除したいですか？\n</p>\n<p class=\"answer\">\n    <strong>会社のメールを使用して</strong>、「コメントの削除リクエスト」という件名のメールを<a\n        href=\"mailto:deletecomment@review.giadinhit.com?subject=コメントの削除リクエスト\">deletecomment@review.giadinhit.com</a>に送信してください\n    コメントの削除は、コメントの内容とあなた/あなたの会社の態度に応じて行われます。\n    ユーザー情報を保存しないため、ユーザーを禁止することはできません。\n</p>\n<p class=\"question\">\n    3.このページに投稿されたコンテンツは正しいですか？\n</p>\n<p class=\"answer\">\n    レビュー担当者は、投稿したコンテンツの信頼性について責任を負います。\n    信じるなら、信じて信じるだけです。ユーザーレビュー全体の信頼性を検証できませんでした。\n</p>\n<p class=\"question\">\n    4.このページはどのような目的で作成されましたか？お金を稼ぎますか？\n</p>\n<p class=\"answer\">\n    企業レビューは、ユーザーがIT /メディア/クリエイティブ企業での経験や経験を共有するためのWebサイトです。\n    このウェブサイトの目標は、共有する場所を持ち、お互いがおいしい会社に入るのを助け、偽の会社をボイコットすることです。現在、完全に非営利で運営しています。\n</p>\n<p class=\"question\">\n    5.私の情報は、上司/人事/雇用主に販売されますか？\n</p>\n<p class=\"answer\">\n    <strong>ユーザー情報</strong>（Cookie、IPアドレス、電話番号）を要求または保存しないため、販売するものはありません。\n</p>\n",
+    "content_page_tnc": "<p>\n                        1.企業レビューは、ユーザーがIT /メディア/クリエイティブ企業での経験や経験を共有するためのWebサイトです\n                    </p>\n                    <p class=\"m-t-10\">\n                        2. review.giadinhit.comに投稿されたすべての情報は、ユーザーによって提供されます。\n                        review.giadinhit.comに情報を投稿するユーザーは、その情報の信頼性について単独で責任を負います。\n                    </p>\n                    <p class=\"m-t-10\">\n                        3.ユーザーが投稿したコンテンツを管理、編集、削除する責任は負いません。\n                    </p>"
 }
