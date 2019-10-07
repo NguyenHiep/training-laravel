@@ -1,26 +1,27 @@
 @extends('layouts.admin')
+@section('title', __('Comments Management'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                @if (session('status'))
-                    <div class="alert alert-{{ session('status') ?? 'success' }} alert-dismissible fade show" role="alert">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-                <div class="toolbar mb-3">
-                    <a href="{{route('manage.companies.index')}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                @include('components.alert-success')
+                <div class="toolbar mb-3 clearfix">
                     @if(!empty($companyId))
-                        <a href="{{ route('manage.comments.create', request()->input()) }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Thêm mới</a>
+                        <div class="float-lg-left">
+                            @if(count($comments) > 0)
+                                <h1>Bình luận <strong>{{$comments->first()->company->name}}</strong></h1>
+                            @endif
+                        </div>
+                        <div class="float-lg-right">
+                            <a href="{{ route('manage.comments.create', request()->input()) }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Thêm mới</a>
+                        </div>
+                    @else
+                        <div class="float-lg-left">
+                            <h1>Manage Comments</h1>
+                        </div>
                     @endif
                 </div> <!-- End .toolbar -->
-                @if(count($comments) > 0 && !empty($companyId))
-                    <h1>Bình luận <strong>{{$comments->first()->company->name}}</strong></h1>
-                @endif
                 <div class="filter mb-3">
                     <form action="" method="get">
                         <div class="input-group">

@@ -27,7 +27,7 @@ Route::namespace('API\Frontend')->prefix('v1')->name('api.')->group(function () 
     Route::post('comments/reply', 'HomeController@storedCommentReply')->name('comments.store.reply');
     Route::prefix('companies')->group(function () {
         Route::get('/', 'HomeController@getListCompany')->name('companies.list');
-        Route::get('{slug}', 'HomeController@getCompanyDetail')->name('companies.detail')->where('slug', '[A-Za-z\-]+');
+        Route::get('{slug}', 'HomeController@getCompanyDetail')->name('companies.detail')->where('slug', '[0-9A-Za-z\-]+');
         Route::get('{id}/comments', 'HomeController@getCommentByCompanyId')->name('companies.comment.detail')->where('id', '[0-9]+');
     });
     Route::get('comments/{id}/reply', 'HomeController@getCommentReply')->name('comments.reply')->where('id', '[0-9]+');

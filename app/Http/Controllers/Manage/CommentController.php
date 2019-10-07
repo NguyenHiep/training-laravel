@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Validator;
 class CommentController extends BaseController
 {
 
+    public function __construct()
+    {
+        $this->middleware('permission:comment-list');
+        $this->middleware('permission:comment-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:comment-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:comment-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *

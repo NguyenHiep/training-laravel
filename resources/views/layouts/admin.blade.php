@@ -7,17 +7,17 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Training laravel') }}</title>
+    <title>@yield('title', __('Dashboard'))</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/admin.js') }}" defer></script>
+    <script src="/js/admin.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="/css/admin.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -34,11 +34,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('manage.companies.index') }}">{{ __('Companies') }}</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="{{ route('manage.companies.index') }}">{{ __('Manage Companies') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('manage.comments.index') }}">{{ __('Comments') }}</a>
+                                <a class="nav-link" href="{{ route('manage.comments.index') }}">{{ __('Manage Comments') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('manage.users.index') }}">{{ __('Manage Users') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('manage.roles.index') }}">{{ __('Manage Role') }}</a>
                             </li>
                         @endauth
                     </ul>

@@ -1,33 +1,20 @@
 @extends('layouts.admin')
+@section('title', __('Create New Comment'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="toolbar mb-3">
-                    <a href="{{ route('manage.comments.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
-                </div>
-                @if (session('status'))
-                <div class="alert alert-{{ session('status') ?? 'success' }} alert-dismissible fade show" role="alert">
-                   {{ session('message') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <ul class="m-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+                <div class="toolbar mb-3 clearfix">
+                    <div class="float-lg-left">
+                        <h1>Thêm mới bình luận</h1>
                     </div>
-                @endif
-                <h1>Thêm mới bình luận</h1>
+                    <div class="float-lg-right">
+                        <a href="{{ route('manage.comments.index', request()->input())}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                    </div>
+                </div>
+                @include('components.alert-success')
+                @includeIf('components.alert-errors', ['errors' => $errors])
                 <form action="{{ route('manage.comments.store') }}" method="POST">
                     @csrf
                     <div class="form-row">

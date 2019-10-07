@@ -11,6 +11,16 @@ use Illuminate\Support\Str;
 
 class CompanyController extends BaseController
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('permission:company-list');
+        $this->middleware('permission:company-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:company-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:company-delete', ['only' => ['destroy']]);
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *

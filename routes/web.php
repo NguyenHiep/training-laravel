@@ -17,7 +17,7 @@ Auth::routes([
 ]);
 
 Route::get('/', 'PageController@index')->name('home');
-Route::get('companies/{slug}', 'PageController@company')->where('slug', '[A-Za-z\-]+')->name('company.detail');
+Route::get('companies/{slug}', 'PageController@company')->where('slug', '[0-9A-Za-z\-]+')->name('company.detail');
 Route::get('/tnc', 'PageController@getPageTnc')->name('tnc');
 Route::get('/fqa', 'PageController@getPageFqa')->name('fqa');
 Route::get('language/{locale}', 'PageController@handleLanguage')->name('handle.language');
@@ -26,4 +26,6 @@ Route::middleware('auth')->namespace('Manage')->prefix('manage')->name('manage.'
     Route::get('/', 'ManageController@index')->name('manage');
     Route::resource('companies', 'CompanyController');
     Route::resource('comments', 'CommentController');
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
 });

@@ -1,33 +1,20 @@
 @extends('layouts.admin')
+@section('title', __('Edit Company'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="toolbar mb-3">
-                    <a href="{{ route('manage.companies.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                <div class="toolbar mb-3 clearfix">
+                    <div class="float-lg-left">
+                        <h1>Cập nhật công ty - {{ $company->name }}</h1>
+                    </div>
+                    <div class="float-lg-right">
+                        <a href="{{ route('manage.companies.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Quay lại</a>
+                    </div>
                 </div>
-                @if (session('status'))
-                    <div class="alert alert-{{ session('status') ?? 'success' }} alert-dismissible fade show" role="alert">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <ul class="m-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <h1>Cập nhật công ty - {{ $company->name }}</h1>
+                @include('components.alert-success')
+                @includeIf('components.alert-errors', ['errors' => $errors])
                 <form action="{{ route('manage.companies.update', ['id' => $company->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

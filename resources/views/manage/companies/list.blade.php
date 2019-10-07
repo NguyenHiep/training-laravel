@@ -1,19 +1,20 @@
 @extends('layouts.admin')
+@section('title', __('Companies Management'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
-                @if (session('status'))
-                    <div class="alert alert-{{ session('status') ?? 'success' }} alert-dismissible fade show" role="alert">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                @include('components.alert-success')
+                <div class="toolbar mb-3 clearfix">
+                    <div class="float-lg-left">
+                        <h1>Manage Companies</h1>
                     </div>
-                @endif
-                <div class="toolbar mb-3">
-                    <a href="{{ route('manage.companies.create') }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Thêm mới</a>
+                   <div class="float-lg-right">
+                       <a href="{{ route('manage.companies.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> {{ __('Thêm mới') }}</a>
+                       <a href="javascript:void(0)" class="btn btn-primary js-action-import"><i class="fas fa-file-import"></i> {{ __('Import CSV') }}</a>
+                       <a href="javascript:void(0)" class="btn btn-primary js-action-export"><i class="fas fa-file-download"></i> {{ __('Export CSV') }}</a>
+                   </div>
                 </div> <!-- End .toolbar -->
                 <div class="filter mb-3">
                     <form action="" method="get">
