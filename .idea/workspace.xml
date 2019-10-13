@@ -1,77 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Stored reply comment, refactor code">
-      <change afterPath="$PROJECT_DIR$/public/images/android-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/android-icon-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/android-icon-36x36.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/android-icon-48x48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/android-icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/android-icon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-114x114.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-120x120.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-152x152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-180x180.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-57x57.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-60x60.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-76x76.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon-precomposed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/apple-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/browserconfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/favicon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ms-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ms-icon-150x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ms-icon-310x310.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/ms-icon-70x70.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/android-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/android-icon-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/android-icon-36x36.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/android-icon-48x48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/android-icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/android-icon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-114x114.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-120x120.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-152x152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-180x180.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-57x57.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-60x60.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-76x76.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon-precomposed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/apple-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/browserconfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/favicon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/ms-icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/ms-icon-150x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/ms-icon-310x310.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/images/ms-icon-70x70.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sass/frontend/_responsive.scss" afterDir="false" />
+    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Update multiple language vuejs, laravel">
+      <change afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_10_11_002846_create_admins_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/customers/dashboard.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/passwords/email.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/passwords/reset.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/training-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/training-laravel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentChild.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentChild.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentCompany.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentCompany.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentPopupStored.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentPopupStored.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/frontend/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/frontend/_home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/company.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/company.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/fqa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/fqa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tnc.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tnc.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -201,6 +165,9 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/asm89/stack-cors" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-cors" />
+      <path value="$PROJECT_DIR$/vendor/martinlindhe/laravel-vue-i18n-generator" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Ob3w2pjr3PlWwfo7k1bAe5iM2B" />
@@ -208,7 +175,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/manage" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -222,15 +189,15 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/images" />
-      <recent name="$PROJECT_DIR$/resources/js/mixins" />
-      <recent name="$PROJECT_DIR$/resources/sass/frontend/fonts" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Manage" />
-      <recent name="$PROJECT_DIR$/config" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/companies" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/manage" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Manage" />
+      <recent name="$PROJECT_DIR$/resources/views/customers" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+      <recent name="$PROJECT_DIR$/resources/views/components" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -349,7 +316,39 @@
       <workItem from="1568556043597" duration="9838000" />
       <workItem from="1568577550909" duration="5000" />
       <workItem from="1568649184561" duration="7212000" />
-      <workItem from="1568727327916" duration="14214000" />
+      <workItem from="1568727327916" duration="14519000" />
+      <workItem from="1568822425841" duration="602000" />
+      <workItem from="1568941241087" duration="2140000" />
+      <workItem from="1568966152766" duration="2232000" />
+      <workItem from="1568995990660" duration="9562000" />
+      <workItem from="1569034118826" duration="6976000" />
+      <workItem from="1569064115539" duration="20036000" />
+      <workItem from="1569120320385" duration="600000" />
+      <workItem from="1569126944413" duration="4468000" />
+      <workItem from="1569131570941" duration="5625000" />
+      <workItem from="1569150603780" duration="7837000" />
+      <workItem from="1569251884777" duration="7545000" />
+      <workItem from="1569336054812" duration="9151000" />
+      <workItem from="1569862760024" duration="3269000" />
+      <workItem from="1569890196237" duration="600000" />
+      <workItem from="1569936805431" duration="8242000" />
+      <workItem from="1570034870625" duration="682000" />
+      <workItem from="1570116378425" duration="10911000" />
+      <workItem from="1570197539885" duration="1776000" />
+      <workItem from="1570325461260" duration="1270000" />
+      <workItem from="1570338827904" duration="3746000" />
+      <workItem from="1570380520958" duration="3043000" />
+      <workItem from="1570461608264" duration="6763000" />
+      <workItem from="1570544792228" duration="624000" />
+      <workItem from="1570726256384" duration="4260000" />
+      <workItem from="1570852556775" duration="1916000" />
+      <workItem from="1570862788804" duration="4882000" />
+      <workItem from="1570884025669" duration="144000" />
+      <workItem from="1570884194732" duration="12000" />
+      <workItem from="1570884594104" duration="7657000" />
+      <workItem from="1570896409439" duration="19991000" />
+      <workItem from="1570939731656" duration="587000" />
+      <workItem from="1570942160922" duration="5560000" />
     </task>
     <task id="LOCAL-00001" summary="[change] Update verify google captcha">
       <created>1566420780814</created>
@@ -414,7 +413,42 @@
       <option name="project" value="LOCAL" />
       <updated>1568657777109</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="[change] Fix bug title SEO, fix save comment append, refactor code, fix bug responsive">
+      <created>1568744652625</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1568744652625</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[change] Update multiple language vuejs, laravel">
+      <created>1569093429019</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1569093429019</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[change] Update select multiple language">
+      <created>1569166531900</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1569166531900</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[change] Multiple language page fqa, tnc">
+      <created>1569261809909</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1569261809909</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[change] Update role and permission">
+      <created>1570468402599</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1570468402599</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,14 +476,19 @@
     <MESSAGE value="[change] Fix bug php artisan optimize" />
     <MESSAGE value="[change] Update env" />
     <MESSAGE value="[change] Stored reply comment, refactor code" />
-    <option name="LAST_COMMIT_MESSAGE" value="[change] Stored reply comment, refactor code" />
+    <MESSAGE value="[change] Fix bug title SEO, fix save comment append, refactor code, fix bug responsive" />
+    <MESSAGE value="[change] Update multiple language vuejs, laravel" />
+    <MESSAGE value="[change] Update select multiple language" />
+    <MESSAGE value="[change] Multiple language page fqa, tnc" />
+    <MESSAGE value="[change] Update role and permission" />
+    <option name="LAST_COMMIT_MESSAGE" value="[change] Update role and permission" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/resources/js/pages/HomePage.vue</url>
-          <line>17</line>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php</url>
+          <line>65</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

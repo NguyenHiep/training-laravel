@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Manage;
 
-use App\User;
+use App\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Manage\BaseController as BaseController;
 use Illuminate\Support\Arr;
@@ -10,14 +10,14 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 
-class UserController extends BaseController
+class AdminController extends BaseController
 {
     public function __construct()
     {
-        $this->middleware('permission:user-list');
-        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+        $this->middleware('permission:admin-list');
+        $this->middleware('permission:admin-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:admin-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:admin-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -27,8 +27,8 @@ class UserController extends BaseController
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id', 'DESC')->paginate(self::LIMIT);
-        return view('manage.users.index', compact('data'))->with('i', ($request->input('page', 1) - 1) * 5);
+        $data = Admin::orderBy('id', 'DESC')->paginate(self::LIMIT);
+        return view('manage.admins.index', compact('data'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -39,7 +39,7 @@ class UserController extends BaseController
     public function create()
     {
         $roles = Role::pluck('name', 'name')->all();
-        return view('manage.users.create', compact('roles'));
+        return view('manage.admins.create', compact('roles'));
     }
 
     /**
@@ -53,7 +53,7 @@ class UserController extends BaseController
     {
         $this->validate($request, [
             'name'     => 'required',
-            'email'    => 'required|email|unique:users,email',
+            'email'    => 'required|email|unique:admins,email',
             'password' => 'required|same:confirm-password',
             'roles'    => 'required'
         ]);
@@ -61,10 +61,10 @@ class UserController extends BaseController
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
 
-        $user = User::create($input);
+        $user = Admin::create($input);
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('manage.users.index')->with('success', 'User created successfully');
+        return redirect()->route('manage.admins.index')->with('success', 'Admin created successfully');
     }
 
     /**
@@ -75,8 +75,8 @@ class UserController extends BaseController
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('manage.users.show', compact('user'));
+        $user = Admin::find($id);
+        return view('manage.admins.show', compact('user'));
     }
 
     /**
@@ -87,11 +87,11 @@ class UserController extends BaseController
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = Admin::find($id);
         $roles = Role::pluck('name', 'name')->all();
         $userRole = $user->roles->pluck('name', 'name')->all();
 
-        return view('manage.users.edit', compact('user', 'roles', 'userRole'));
+        return view('manage.admins.edit', compact('user', 'roles', 'userRole'));
     }
 
     /**
@@ -106,7 +106,7 @@ class UserController extends BaseController
     {
         $this->validate($request, [
             'name'     => 'required',
-            'email'    => 'required|email|unique:users,email,' . $id,
+            'email'    => 'required|email|unique:admins,email,' . $id,
             'password' => 'same:confirm-password',
             'roles'    => 'required'
         ]);
@@ -118,13 +118,13 @@ class UserController extends BaseController
             $input = Arr::except($input, array('password'));
         }
 
-        $user = User::find($id);
+        $user = Admin::find($id);
         $user->update($input);
         DB::table('model_has_roles')->where('model_id', $id)->delete();
 
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('manage.users.index')->with('success', 'User updated successfully');
+        return redirect()->route('manage.admins.index')->with('success', 'Admin updated successfully');
     }
 
     /**
@@ -135,7 +135,7 @@ class UserController extends BaseController
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect()->route('manage.users.index')->with('success', 'User deleted successfully');
+        Admin::find($id)->delete();
+        return redirect()->route('manage.admins.index')->with('success', 'Admin deleted successfully');
     }
 }

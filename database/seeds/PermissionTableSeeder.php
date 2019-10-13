@@ -1,7 +1,8 @@
 <?php
 
-use App\User;
+use App\Admin;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
@@ -18,6 +19,14 @@ class PermissionTableSeeder extends Seeder
         // Reset cached roles and permissions
         app(PermissionRegistrar::class)->forgetCachedPermissions();
 
+        // Reset all table permission
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+            DB::table('roles')->truncate();
+            DB::table('permissions')->truncate();
+            DB::table('model_has_permissions')->truncate();
+            DB::table('model_has_roles')->truncate();
+            DB::table('role_has_permissions')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         // Insert data
         $permissions = [
             'role-list',
@@ -39,26 +48,36 @@ class PermissionTableSeeder extends Seeder
             'user-list',
             'user-create',
             'user-edit',
-            'user-delete'
+            'user-delete',
+            'admin-list',
+            'admin-create',
+            'admin-edit',
+            'admin-delete'
         ];
-
 
         // Update role for user
         foreach ($permissions as $permission) {
-            Permission::updateOrCreate(['name' => $permission]);
+            Permission::updateOrCreate([
+                'guard_name' => 'admin',
+                'name'       => $permission
+            ]);
         }
 
-        $role = Role::updateOrCreate(['name' => 'Supper Admin']);
-        $role->givePermissionTo(Permission::all());
+        //Assign role to admins
 
-        // Assign role to users
-        User::truncate();
-        $user = User::updateOrCreate([
-            'name'     => 'Hiep Nguyen',
-            'email'    => 'minhhiep.q@gmail.com',
+        $roleAdmin = Role::updateOrCreate([
+            'guard_name' => 'admin',
+            'name'       => 'Supper Admin'
+        ]);
+        $roleAdmin->givePermissionTo(Permission::where('guard_name', 'admin')->get());
+
+        Admin::truncate();
+        $admin = Admin::updateOrCreate([
+            'name'     => 'Hiep Nguyen Administrator',
+            'email'    => 'nguyenminhhiep9x@gmail.com',
             'password' => bcrypt('Demo@admin.com'),
         ]);
-        $user->assignRole($role);
+        $admin->assignRole($roleAdmin);
 
     }
 }

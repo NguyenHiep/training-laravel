@@ -8,11 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class Admin extends Authenticatable
 {
     use HasApiTokens, Notifiable, HasRoles;
 
-    protected $guard_name = 'web';
+    protected $guard_name = 'admin';
+
+    protected $table = 'admins';
 
     /**
      * The attributes that are mass assignable.

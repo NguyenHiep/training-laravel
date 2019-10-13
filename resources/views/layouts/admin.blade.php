@@ -33,53 +33,53 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @auth
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="{{ route('manage.companies.index') }}">{{ __('Manage Companies') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('manage.comments.index') }}">{{ __('Manage Comments') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('manage.users.index') }}">{{ __('Manage Users') }}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('manage.roles.index') }}">{{ __('Manage Role') }}</a>
-                            </li>
-                        @endauth
+                        @if(Auth::guard('admin')->check())
+                            @can('company-list')
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{{ route('manage.companies.index') }}">{{ __('Manage Companies') }}</a>
+                                </li>
+                            @endcan
+                            @can('comment-list')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('manage.comments.index') }}">{{ __('Manage Comments') }}</a>
+                                </li>
+                            @endcan
+                            @can('user-list')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('manage.users.index') }}">{{ __('Manage Users') }}</a>
+                                </li>
+                            @endcan
+                            @can('role-list')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('manage.roles.index') }}">{{ __('Manage Role') }}</a>
+                                </li>
+                            @endcan
+                            @can('admin-list')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('manage.admins.index') }}">{{ __('Manage Admins') }}</a>
+                                </li>
+                            @endcan
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
+                        @if(Auth::guard('admin')->check())
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                    <a href="{{route('manage.home')}}" class="dropdown-item">Dashboard</a>
+                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#admin-logout-form').submit();">
+                                        Logout
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="admin-logout-form" action="{{ route('manage.logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endif
                     </ul>
                 </div>
             </div>
