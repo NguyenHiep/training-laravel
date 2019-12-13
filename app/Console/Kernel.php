@@ -27,12 +27,12 @@ class Kernel extends ConsoleKernel
     {
         //TODO :Auto sync
         /****
-         * Hours sync data: 3:00
+         * Hours crawling data: 3:00
          *
-         * 1. Sync company
-         * 2. Sync image company
-         * 3. Sync comment
-         * 4. Sync sub comment
+         * 1. Crawling company
+         * 2. Crawling image company
+         * 3. Crawling comment
+         * 4. Crawling sub comment
          */
         //Test scheduling
       /*  logger('1111111111111');

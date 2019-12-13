@@ -35,8 +35,6 @@
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/CommentLatest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentLatest.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" afterDir="false" />
@@ -443,7 +441,7 @@
       <workItem from="1575991153424" duration="5437000" />
       <workItem from="1576071564123" duration="2906000" />
       <workItem from="1576158449853" duration="15192000" />
-      <workItem from="1576251595532" duration="10816000" />
+      <workItem from="1576251595532" duration="11142000" />
     </task>
     <task id="LOCAL-00001" summary="[change] Update verify google captcha">
       <created>1566420780814</created>
@@ -591,6 +589,18 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1576173665807" />
+    <state x="250" y="27" width="922" height="741" key="CommitChangelistDialog2" timestamp="1576264966031">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="250" y="27" width="922" height="741" key="CommitChangelistDialog2/67.27.1299.741@67.27.1299.741" timestamp="1576264966031" />
+    <state x="187" y="85" width="1039" height="622" key="DiffContextDialog" timestamp="1576264838133">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="187" y="85" width="1039" height="622" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1576264838133" />
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1576264879122">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="311" y="132" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1299.741@67.27.1299.741" timestamp="1576264879122" />
     <state x="372" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1576251596188">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
