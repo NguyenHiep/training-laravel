@@ -18,3 +18,16 @@
 .w150{
   width: 150px;
 }
+.loading {
+    opacity: 0.8;
+    pointer-events: none;
+    position: relative;
+    .loading-block {
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        top: 10%;
+        margin-top: -50px;
+        z-index: 10
+    }
+}

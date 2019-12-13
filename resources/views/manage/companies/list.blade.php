@@ -14,6 +14,7 @@
                        <a href="{{ route('manage.companies.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> {{ __('Thêm mới') }}</a>
                        <a href="javascript:void(0)" class="btn btn-primary js-action-import"><i class="fas fa-file-import"></i> {{ __('Import CSV') }}</a>
                        <a href="javascript:void(0)" class="btn btn-primary js-action-export"><i class="fas fa-file-download"></i> {{ __('Export CSV') }}</a>
+                       <a href="{{ route('manage.companies.crawling') }}" class="btn btn-primary"><i class="fas fa-file-download"></i> {{ __('Crawling Data') }}</a>
                    </div>
                 </div> <!-- End .toolbar -->
                 <div class="filter mb-3">

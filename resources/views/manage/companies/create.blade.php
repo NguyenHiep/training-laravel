@@ -39,8 +39,8 @@
                         @php
                             $types = [
                                 ''  => 'Choose...',
-                                'Dịch vụ' => 'Dịch vụ',
-                                'Sản phẩm' => 'Sản phẩm'
+                                '1' => 'Sản phẩm',
+                                '2' => 'Dịch vụ',
                             ];
                         @endphp
                         <div class="form-group col-md-6">
@@ -51,24 +51,9 @@
                                 @endforeach
                             </select>
                         </div>
-                        @php
-                            $sizes = [
-                                ''     => 'Choose...',
-                                '50'   => '< 50',
-                                '100'  => '50 - 100',
-                                '200'  => '150 - 200',
-                                '500'  => '200 - 500',
-                                '1000' => '500 - 1000',
-                                '2000' => '> 1000'
-                            ];
-                        @endphp
                         <div class="form-group col-md-6">
                             <label for="size">Nhân viên</label>
-                            <select name="size" id="size" class="form-control" required>
-                                @foreach($sizes as $key => $size)
-                                    <option value="{{ $key }}" {{ old('size') == $key ? 'selected' : '' }}>{{ $size }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" id="size" value="{{ old('size') }}" name="size" class="form-control" placeholder="0-50" required />
                         </div>
                     </div>
                     <div class="form-group">

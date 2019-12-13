@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Manage;
 
+use App\Http\Controllers\Traits\CommonApiTrait;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BaseController extends Controller
 {
+
+    use CommonApiTrait;
+
     const CTRL_MESSAGE_SUCCESS = "success";
     const CTRL_MESSAGE_INFO    = "info";
     const CTRL_MESSAGE_WARNING = "warning";

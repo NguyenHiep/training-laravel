@@ -32,7 +32,7 @@
                       </span>
                    </h1>
                    <div class="company-info__other">
-                       <span><i class="fas fa-briefcase"></i> {{ company.type }}</span>
+                       <span><i class="fas fa-briefcase"></i> {{ $t('selector.type.' + company.type) }}</span>
                        <span><i class="fas fa-users"></i>  {{ company.size }}</span>
                    </div>
                    <div class="company-info__location">

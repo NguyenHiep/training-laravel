@@ -16,19 +16,12 @@ class Company extends Model
         'name', 'slug', 'type', 'size', 'address', 'logo', 'status'
     ];
 
-    protected $appends = ['total_comment'];
-
     /**
      * Get the comments for the company post.
      */
     public function comments()
     {
         return $this->hasMany(Comment::class, 'company_id', 'id');
-    }
-
-    public function getTotalCommentAttribute()
-    {
-        return $this->hasMany(Comment::class)->whereCompanyId($this->id)->count();
     }
 
     /***
@@ -48,7 +41,7 @@ class Company extends Model
             ->where('co.status', self::STATUS_ENABLE)
             ->groupBy('co.id')
             ->orderByRaw(DB::raw('COALESCE(GREATEST(co.created_at, MAX(c.created_at)), co.created_at) DESC'))
-            ->paginate(10);
+            ->paginate(25);
         return $companies;
     }
 
@@ -63,18 +56,17 @@ class Company extends Model
         if (empty($textSearch)) {
             return false;
         }
-        $companies = DB::table('companies as co')
+        return DB::table('companies as co')
             ->select('co.id', 'co.name', 'co.slug', 'co.type', 'co.size', 'co.address', 'co.logo')
             ->where('co.name', 'LIKE', '%' . $textSearch . '%')
             ->where('co.status', self::STATUS_ENABLE)
             ->orderBy('name', 'ASC')
             ->get();
-        return $companies;
     }
 
     public function getCompanyDetail(string $slug)
     {
-        $company = DB::table('companies as co')
+        return DB::table('companies as co')
             ->select('co.id', 'co.name', 'co.slug', 'co.type', 'co.size', 'co.address',
                 'co.logo', DB::raw('COUNT(c.company_id) AS total_comment'),  DB::raw('AVG(c.star) AS avg_star'))
             ->leftJoin('comments as c', function ($leftJoin) {
@@ -85,7 +77,6 @@ class Company extends Model
             ->where('co.status', self::STATUS_ENABLE)
             ->groupBy('co.id')
             ->first();
-        return $company;
     }
 
 }

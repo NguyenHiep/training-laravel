@@ -8,16 +8,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', __('Dashboard'))</title>
-
-    <!-- Scripts -->
-    <script src="/js/admin.js" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="//fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="/css/admin.css" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="/js/admin.js" defer></script>
 </head>
 <body>
     <div id="app">

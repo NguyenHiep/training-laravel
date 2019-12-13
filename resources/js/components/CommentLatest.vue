@@ -12,7 +12,7 @@
                        <i class="fa-star" :class="star <= comment.star ? 'fas' : 'far'"></i>
                    </span>
                 </p>
-                <p>{{ comment.content }}</p>
+                <p>{{ comment.content | limitWord }}</p>
             </div>
         </div>
     </section>

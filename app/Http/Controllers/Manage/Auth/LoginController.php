@@ -10,6 +10,9 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 class LoginController extends Controller
 {
 
+    const CTRL_MESSAGE_SUCCESS = "success";
+    const CTRL_MESSAGE_ERROR   = "error";
+
     /**
      * This trait has all the login throttling functionality.
      */
@@ -76,7 +79,10 @@ class LoginController extends Controller
             //Authenticated
             return redirect()
                 ->intended(route('manage.home'))
-                ->with('status','You are Logged in as Admin!');
+                ->with([
+                    'status'  => self::CTRL_MESSAGE_SUCCESS,
+                    'message' => __('You are Logged in as Admin!')
+                ]);
         }
         //keep track of login attempts from the user.
         $this->incrementLoginAttempts($request);
@@ -94,7 +100,10 @@ class LoginController extends Controller
         Auth::guard('admin')->logout();
         return redirect()
             ->route('manage.login')
-            ->with('status','Admin has been logged out!');
+            ->with([
+                'status'  => self::CTRL_MESSAGE_SUCCESS,
+                'message' => __('Admin has been logged out!')
+            ]);
     }
 
     /**
@@ -128,7 +137,10 @@ class LoginController extends Controller
         return redirect()
             ->back()
             ->withInput()
-            ->with('error','Login failed, please try again!');
+            ->with([
+                'status'  => self::CTRL_MESSAGE_ERROR,
+                'message' => __('Login failed, please try again!')
+            ]);
     }
 
     protected function guard() {

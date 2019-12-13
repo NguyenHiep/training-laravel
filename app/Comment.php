@@ -34,7 +34,7 @@ class Comment extends Model
      */
     public function getLatestComment()
     {
-        $comments = DB::table('comments as c')
+        return DB::table('comments as c')
             ->select('c.id', 'c.reviewer', 'c.star', 'c.content', 'c.created_at', 'co.name as company_name', 'co.slug')
             ->join('companies as co', function ($join) {
                 $join->on('co.id', '=', 'c.company_id')
@@ -42,9 +42,8 @@ class Comment extends Model
             })
             ->where('c.status', self::STATUS_ENABLE)
             ->orderBy('id', 'desc')
-            ->limit(7)
+            ->limit(15)
             ->get();
-        return $comments;
     }
 
     /****
@@ -54,7 +53,7 @@ class Comment extends Model
      */
     public function getCommentByCompanyId(int $companyId)
     {
-        $comments = DB::table('comments as c')
+        return DB::table('comments as c')
             ->select('c.id', 'c.reviewer', 'c.star', 'c.content', 'c.position', 'c.created_at')
             ->join('companies as co', function ($join) {
                 $join->on('co.id', '=', 'c.company_id')
@@ -64,12 +63,11 @@ class Comment extends Model
             ->where('c.status', self::STATUS_ENABLE)
             ->orderBy('id', 'desc')
             ->paginate(10);
-        return $comments;
     }
 
     public function getCommentReply(int $commentId)
     {
-        $comments = DB::table('comments_reply as cr')
+        return DB::table('comments_reply as cr')
             ->select('cr.id', 'cr.reviewer', 'cr.content', 'cr.reaction', 'cr.created_at')
             ->join('comments as c', function ($join) {
                 $join->on('c.id', '=', 'cr.comment_id')
@@ -79,7 +77,6 @@ class Comment extends Model
             ->where('cr.status', self::STATUS_ENABLE)
             ->orderBy('cr.id', 'desc')
             ->paginate(5, ['*'], 'p');
-        return $comments;
     }
 
 }

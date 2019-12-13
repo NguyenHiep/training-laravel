@@ -177,6 +177,10 @@ export default {
                     "label": "Japanese",
                     "flag": "<i class=\"flag flag-jp\"></i>"
                 }
+            },
+            "type": {
+                "1": "Product",
+                "2": "Outsource"
             }
         },
         "pagination": {
@@ -366,6 +370,10 @@ export default {
                     "label": "日本語",
                     "flag": "<i class=\"flag flag-jp\"></i>"
                 }
+            },
+            "type": {
+                "1": "製品",
+                "2": "外部委託]す"
             }
         },
         "pagination": {
@@ -555,6 +563,10 @@ export default {
                     "label": "Japanese",
                     "flag": "<i class=\"flag flag-jp\"></i>"
                 }
+            },
+            "type": {
+                "1": "Sản phẩm",
+                "2": "Dịch vụ"
             }
         },
         "pagination": {

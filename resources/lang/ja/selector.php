@@ -26,4 +26,8 @@ return [
             'flag'  => '<i class="flag flag-jp"></i>',
         ]
     ],
+    'type' => [
+        1 => '製品',
+        2 => '外部委託]す'
+    ]
 ];

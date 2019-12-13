@@ -1,43 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Update multiple language vuejs, laravel">
-      <change afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/ResetPasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_10_11_002846_create_admins_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/customers/dashboard.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/admins/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/manage/auth/verify.blade.php" afterDir="false" />
+    <list default="true" id="e8c3fc95-7673-4964-8fcd-ed71853141d1" name="Default Changelist" comment="[change] Update multiple authentication guards">
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/CommentCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/CommentStoredCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/CrawlingCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/CrawlingImageCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Console/Commands/StoredCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/CrawlingCommentCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Events/CrawlingCompany.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Traits/CommonApiTrait.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Helpers/Helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/CrawlingCommentCompanyListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Listeners/CrawlingCompanyListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_10_14_235957_create_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_10_24_010818_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_10_24_233140_modify_column_companies_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/sql/path_02.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/manage/company/Crawling.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/manage/_crawling.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/manage/companies/crawling.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/training-laravel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/training-laravel.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PermissionTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PermissionTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/Frontend/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/BaseController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/CompanyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentLatest.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentLatest.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CommentStored.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/CompanyList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/CompanyList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/mixins/globalMixin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/mixins/globalMixin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/CompanyPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/vue-i18n-locales.generated.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/vue-i18n-locales.generated.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/selector.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/selector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/ja/selector.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/ja/selector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/vi/selector.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vi/selector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/admin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/admin.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/manage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manage/companies/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage/companies/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manage/companies/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage/companies/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/manage/companies/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/manage/companies/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +65,20 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -168,14 +199,23 @@
       <path value="$PROJECT_DIR$/vendor/martinlindhe/laravel-vue-i18n-generator" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Ob3w2pjr3PlWwfo7k1bAe5iM2B" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/manage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Console/Commands" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -190,33 +230,34 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Trait" />
       <recent name="$PROJECT_DIR$/resources/views/companies" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Console/Commands" />
+      <recent name="$PROJECT_DIR$/resources/views/manage/companies" />
       <recent name="$PROJECT_DIR$/resources/views/manage" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Manage" />
       <recent name="$PROJECT_DIR$/resources/views/customers" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
-      <recent name="$PROJECT_DIR$/resources/views/components" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -348,7 +389,61 @@
       <workItem from="1570884594104" duration="7657000" />
       <workItem from="1570896409439" duration="19991000" />
       <workItem from="1570939731656" duration="587000" />
-      <workItem from="1570942160922" duration="5560000" />
+      <workItem from="1570942160922" duration="7293000" />
+      <workItem from="1570977114489" duration="6503000" />
+      <workItem from="1571057301021" duration="11669000" />
+      <workItem from="1571147815729" duration="11765000" />
+      <workItem from="1571324035145" duration="2608000" />
+      <workItem from="1571360154779" duration="1123000" />
+      <workItem from="1571413783777" duration="3956000" />
+      <workItem from="1571554140954" duration="958000" />
+      <workItem from="1571587187527" duration="8963000" />
+      <workItem from="1571671827093" duration="700000" />
+      <workItem from="1571761636643" duration="1305000" />
+      <workItem from="1571845546619" duration="8170000" />
+      <workItem from="1571929363653" duration="7082000" />
+      <workItem from="1572018980405" duration="5788000" />
+      <workItem from="1572055013182" duration="26045000" />
+      <workItem from="1572155545124" duration="10385000" />
+      <workItem from="1572189622000" duration="967000" />
+      <workItem from="1572276342001" duration="2567000" />
+      <workItem from="1572455599125" duration="792000" />
+      <workItem from="1572628157342" duration="601000" />
+      <workItem from="1572659134491" duration="2820000" />
+      <workItem from="1572666997499" duration="2445000" />
+      <workItem from="1572684003407" duration="1454000" />
+      <workItem from="1572706954509" duration="1183000" />
+      <workItem from="1572711938464" duration="174000" />
+      <workItem from="1572880877440" duration="2606000" />
+      <workItem from="1573059998293" duration="2423000" />
+      <workItem from="1573133741370" duration="599000" />
+      <workItem from="1573135860473" duration="599000" />
+      <workItem from="1573139048334" duration="395000" />
+      <workItem from="1573140785524" duration="5678000" />
+      <workItem from="1573294045097" duration="1210000" />
+      <workItem from="1573317713703" duration="725000" />
+      <workItem from="1573361782328" duration="17000" />
+      <workItem from="1574008908400" duration="41000" />
+      <workItem from="1574009122180" duration="606000" />
+      <workItem from="1574090314300" duration="1151000" />
+      <workItem from="1574124197127" duration="765000" />
+      <workItem from="1574178002662" duration="600000" />
+      <workItem from="1574267721922" duration="6799000" />
+      <workItem from="1574948236584" duration="10845000" />
+      <workItem from="1575104704567" duration="1245000" />
+      <workItem from="1575113666364" duration="855000" />
+      <workItem from="1575181890999" duration="1204000" />
+      <workItem from="1575198381764" duration="612000" />
+      <workItem from="1575565634202" duration="3385000" />
+      <workItem from="1575735777916" duration="1199000" />
+      <workItem from="1575785638049" duration="1209000" />
+      <workItem from="1575805000970" duration="301000" />
+      <workItem from="1575806286475" duration="3454000" />
+      <workItem from="1575819074366" duration="1204000" />
+      <workItem from="1575991153424" duration="5437000" />
+      <workItem from="1576071564123" duration="2906000" />
+      <workItem from="1576158449853" duration="15192000" />
+      <workItem from="1576251595532" duration="10816000" />
     </task>
     <task id="LOCAL-00001" summary="[change] Update verify google captcha">
       <created>1566420780814</created>
@@ -448,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570468402599</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="[change] Update multiple authentication guards">
+      <created>1570947983741</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1570947983741</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,14 +583,37 @@
     <MESSAGE value="[change] Update select multiple language" />
     <MESSAGE value="[change] Multiple language page fqa, tnc" />
     <MESSAGE value="[change] Update role and permission" />
-    <option name="LAST_COMMIT_MESSAGE" value="[change] Update role and permission" />
+    <MESSAGE value="[change] Update multiple authentication guards" />
+    <option name="LAST_COMMIT_MESSAGE" value="[change] Update multiple authentication guards" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576173665807">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="449" y="154" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1299.741@67.27.1299.741" timestamp="1576173665807" />
+    <state x="372" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1576251596188">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="372" y="245" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1576251596188" />
+    <state x="370" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1576170464291">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="370" y="27" width="683" height="741" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1299.741@67.27.1299.741" timestamp="1576170464291" />
+    <state x="362" y="132" width="709" height="528" key="find.popup" timestamp="1576262394921">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="362" y="132" width="709" height="528" key="find.popup/67.27.1299.741@67.27.1299.741" timestamp="1576262394921" />
+    <state x="441" y="310" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1576263899034">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="441" y="310" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1299.741@67.27.1299.741" timestamp="1576263899034" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/layouts/admin.blade.php</url>
-          <line>65</line>
+          <line>64</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

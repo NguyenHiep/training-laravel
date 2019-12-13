@@ -47,6 +47,9 @@ Route::prefix('/manage')->name('manage.')->namespace('Manage')->group(function (
 
 Route::middleware(['auth:admin'])->namespace('Manage')->prefix('manage')->name('manage.')->group(function () {
     Route::get('/', 'ManageController@index')->name('home');
+    Route::get('companies/crawling', 'CompanyController@crawling')->name('companies.crawling');
+    Route::post('companies/crawling', 'CompanyController@previewCrawling')->name('companies.crawling.preview');
+    Route::get('companies/handle', 'CompanyController@testCrawlingData')->name('companies.handle.crawling');
     Route::resource('companies', 'CompanyController');
     Route::resource('comments', 'CommentController');
     Route::resource('roles', 'RoleController');

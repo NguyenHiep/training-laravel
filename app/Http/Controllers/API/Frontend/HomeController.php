@@ -79,6 +79,7 @@ class HomeController extends BaseController
         $comments = $commentModel->getCommentByCompanyId($companyId);
         //
         if ($comments->count() > 0) {
+            //TODO: Refactor code here
             foreach ($comments as $comment) {
                 $resultComment = $commentModel->getCommentReply($comment->id);
                 $comment->childrens = [

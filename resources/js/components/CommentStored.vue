@@ -40,7 +40,7 @@
                 </div>
                 <div class="modal-footer justify-content-start">
                     <button type="submit" class="btn btn-success" :disabled="!verifyReCaptcha">{{ $t('Post a review') }}</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">{{ $t('Cancel') }}̉</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">{{ $t('Cancel') }}</button>
                 </div>
             </div>
             </form>

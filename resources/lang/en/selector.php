@@ -25,5 +25,9 @@ return [
             'label' => 'Japanese',
             'flag'  => '<i class="flag flag-jp"></i>',
         ]
+    ],
+    'type' => [
+        1 => 'Product',
+        2 => 'Outsource'
     ]
 ];

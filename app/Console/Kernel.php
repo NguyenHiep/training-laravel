@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\DB;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,8 +25,23 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //TODO :Auto sync
+        /****
+         * Hours sync data: 3:00
+         *
+         * 1. Sync company
+         * 2. Sync image company
+         * 3. Sync comment
+         * 4. Sync sub comment
+         */
+        //Test scheduling
+      /*  logger('1111111111111');
+        $schedule->call(function () {
+            DB::table('test')->insert([
+                'id' => random_int(1, 1000),
+                'content' => 'test conentent'
+            ]);
+        })->everyMinute();*/
     }
 
     /**
