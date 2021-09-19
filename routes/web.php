@@ -21,7 +21,8 @@ Route::get('companies/{slug}', 'PageController@company')->where('slug', '[0-9A-Z
 Route::get('/tnc', 'PageController@getPageTnc')->name('tnc');
 Route::get('/fqa', 'PageController@getPageFqa')->name('fqa');
 Route::get('language/{locale}', 'PageController@handleLanguage')->name('handle.language');
-
+Route::get('/contact', 'PageController@contact')->name('contact');
+Route::post('/contact', 'PageController@storedContact')->name('contact.store');
 // Customer access
 
 Route::middleware('auth')->name('customer.')->group(function () {
